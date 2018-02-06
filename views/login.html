@@ -1,0 +1,39 @@
+<div class="container-fluid" ng-controller="loginCtrl">
+    <div class="row justify-content-sm-center">
+        <div class="col col-lg-4 col-md-6 col-sm-8">
+            <div class="box-login rounded">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <img class="logo" src="./assets/imgs/logo.jpg" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <h6><strong>Acesso do Estabelecimento</strong></h6>
+                        <form ng-submit="onSubmit()">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Usuário</span>
+                                </div>
+                                <input id="inputUser" type="text" ng-model="input.user" class="form-control" placeholder="Email, CNPJ ou Estabelecimento" required />
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Senha</span>
+                                </div>
+                                <input id="inputPass" type="password" ng-model="input.pass" class="form-control" placeholder="Senha" required />
+                                <button id="showPass" type="button"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div id="feedback" class="alert alert-danger" role="alert" ng-show="inputStatus === 'NOK'">Usuário ou senha incorretos</div>
+                            <div id="feedback" class="alert alert-danger" role="alert" ng-show="inputStatus === 'empty'">Preencha os campos corretamente</div>
+                            <input class="btn btn-primary btn-block" type="submit" value="Acessar">
+                            <div class="g-recaptcha" data-sitekey="6LdrvUMUAAAAALSkGqb2d4tSQ0Y-4H3MfEoEH25v" data-callback="afterCaptcha" data-size="invisible"></div>
+                            <!-- <input class="btn btn-primary btn-block g-recaptcha" type="submit" data-sitekey="6LdrvUMUAAAAALSkGqb2d4tSQ0Y-4H3MfEoEH25v" data-callback='onSubmit' value="Acessar"> -->
+                        </form>
+                        <a href="#!/recuperar">Esqueci minha senha</a><br />
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>
