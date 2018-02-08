@@ -1,33 +1,521 @@
 <div class="container-fluid" ng-controller="mainCtrl">
+    <!-- Modal -->
+    <div class="modal fade" id="modal-domicilio" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Domicílio Bancário</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Bandeira Visa</p>
+                            <img class="modal-bandeira" src="./assets/imgs/visa.png" />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-sm borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="modal-banco" src="./assets/imgs/itau.png" />
+                                                </td>
+                                                <td>
+                                                    <p class="bolder"><strong>Código</strong><br />
+                                                    341</p>
+                                                </td>
+                                                <td>
+                                                    <p class="bolder"><strong>Conta</strong><br />
+                                                    86563-2</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="bolder"><strong>Banco</strong><br />
+                                                    Itaú SA</p>
+                                                </td>
+                                                <td>
+                                                    <p class="bolder"><strong>Agência</strong><br />
+                                                    0960</p>
+                                                </td>
+                                                <td>
+                                                    <p class="bolder"><strong>Tipo de Conta</strong><br />
+                                                    Poupança</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-secondary btn-block" disabled>DOMICÍLIO BANCÁRIO TRAVADO <i class="fas fa-lock"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row no-gutters">
         <div id="menu-container" class="col col-md-4 col-lg-3">
             <div ng-include="'./views/menu.html'"></div>
         </div>
         <div id="main-container" class="col col-md-8 col-lg-9">
-            <nav class="navbar navbar-light bg-light">
-                <h1>
-                    Dados cadastrais
-                </h1>
-                <div class="pull-right user-info">
-                    <div class="user-col">
-                        <img src="./assets/imgs/user.png" />
-                    </div>
-                    <div class="user-col">
-                        <a id="username" href="#">Jonas Nascimento</a><br />
-                        <a id="userrole" href="#">Administrador</a>
-                    </div>
-                </div>
-            </nav>
+            <div ng-include="'./views/header.html'"></div>
             <div class="row main-content">
                 <div class="col col-md-12">
-                    <form>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Estabelecimento</span>
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="estabelecimento-tab" href="#estabelecimento">Estabelecimentos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="enderecos-tab" href="#enderecos">Endereços</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="produtos-tab" href="#produtos">Produtos e Taxas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="equipamentos-tab" href="#equipamentos">Equipamentos</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="estabelecimento" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Dados da Loja
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Razão Social</strong></p>
+                                            <p>Jose de Anchieta Comercio de Produtos Ltda.</p>
+                                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                                            <p>Hiper Anchieta</p>
+                                            <p class="bolder"><strong>MCC - Ramo de Atividade</strong></p>
+                                            <p>5411- Mercearias/Supermecados</p>
+                                            <p class="bolder"><strong>Categoria do EC</strong></p>
+                                            <p>Matriz</p>
+                                            <p class="bolder"><strong>CNAE</strong></p>
+                                            <p>4711-3 - Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - hipermercados e supermercados</p>
+                                            <p class="bolder"><strong>Nome de Contato</strong></p>
+                                            <p>Maria Rosa Emiliano</p>
+                                            <p class="bolder"><strong>Telefone do Contato</strong></p>
+                                            <p>(11) 3244-0987 - Ramal 1234</p>
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Status da Loja</strong></p>
+                                            <p>Ativa</p>
+                                            <p class="bolder"><strong>CNPJ</strong></p>
+                                            <p>33.042.953/0001-73</p>
+                                            <p class="bolder"><strong>Código da Loja</strong></p>
+                                            <p>999.999.998</p>
+                                            <p class="bolder"><strong>Data do Credenciamento</strong></p>
+                                            <p>12/06/2015 - Há 1 ano e 5 dias</p>
+                                            <p class="bolder"><strong>Gerente Comercial Tripag</strong></p>
+                                            <p>Maria Lucia Camargo<br/>
+                                            (11) 3566-7368 - Ramal 0987<br/>
+                                            maria.lucia@tripag.com.br<br/>
+                                            <p class="bolder"><strong>Email de Contato</strong></p>
+                                            <p>maria.rosa@hiperanchieta.com.br</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Dados Centralizador
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Código do EC</strong></p>
+                                            <p>999.999.999</p>
+                                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                                            <p>Hiper Anchieta</p>
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>CNPJ</strong></p>
+                                            <p>33.042.086/0001-65</p>
+                                            <p class="bolder"><strong>Razão Social</strong></p>
+                                            <p>Jose de Anchieta Comercio de Produtos Ltda</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Dados da Matriz
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Código do EC</strong></p>
+                                            <p>999.999.999</p>
+                                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                                            <p>Hiper Anchieta</p>
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>CNPJ</strong></p>
+                                            <p>33.042.086/0001-65</p>
+                                            <p class="bolder"><strong>Razão Social</strong></p>
+                                            <p>Jose de Anchieta Comercio de Produtos Ltda</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Dados dos Proprietários
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <table class="table table-sm borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Nome do Proprietário</th>
+                                                        <th scope="col">CPF Proprietários</th>
+                                                        <th scope="col">Percentual</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Joana do Rosário Nascimento</td>
+                                                        <td>123.456.789-01</td>
+                                                        <td>75%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Joana do Rosário Nascimento</td>
+                                                        <td>123.456.789-01</td>
+                                                        <td>25%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="enderecos" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Endereço da Loja
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Nome do Logradouro</strong></p>
+                                            <p>Avenida Engenheiro Luis Calos Berrini</p>
+                                            <p class="bolder"><strong>Bairro</strong></p>
+                                            <p>Vila Santa Esmeralda</p>
+                                            <p class="bolder"><strong>Telefone de Comercial</strong></p>
+                                            <p>(11) 3233-4642</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Número</strong></p>
+                                            <p>9423</p>
+                                            <p class="bolder"><strong>Município</strong></p>
+                                            <p>São Paulo</p>
+                                            <p class="bolder"><strong>Telefone Celular</strong></p>
+                                            <p>(11) 93333-3333</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Complemento</strong></p>
+                                            <p>Bloco D - Conjunto 71</p>
+                                            <p class="bolder"><strong>UF</strong></p>
+                                            <p>São Paulo</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Endereço de Correspondência
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Nome do Logradouro</strong></p>
+                                            <p>Avenida Engenheiro Luis Calos Berrini</p>
+                                            <p class="bolder"><strong>Bairro</strong></p>
+                                            <p>Vila Santa Esmeralda</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Número</strong></p>
+                                            <p>9423</p>
+                                            <p class="bolder"><strong>Município</strong></p>
+                                            <p>São Paulo</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Complemento</strong></p>
+                                            <p>Bloco D - Conjunto 71</p>
+                                            <p class="bolder"><strong>UF</strong></p>
+                                            <p>São Paulo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="produtos" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Taxas Contratadas
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <table class="table table-sm table-taxas table-bordered">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Bandeira</th>
+                                                        <th scope="col">Crédito</th>
+                                                        <th scope="col">Receber em</th>
+                                                        <th scope="col">Débito</th>
+                                                        <th scope="col">Receber em</th>
+                                                        <th scope="col">Parcelado 2x a 6x</th>
+                                                        <th scope="col">Parcelado acima 6x</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-white logo-bandeira">
+                                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-domicilio">
+                                                                    <img src="./assets/imgs/tricard.png" />
+                                                            </button>
+                                                        </td>
+                                                        <td class="bg-blue">4,49%</td>
+                                                        <td class="bg-blue">2 Dias <span class="badge badge-primary">FLEX</span></td>
+                                                        <td class="bg-green">2,49%</td>
+                                                        <td class="bg-green">1 Dia</td>
+                                                        <td class="bg-orange">3,49%</td>
+                                                        <td class="bg-orange">4,49%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="bg-white logo-bandeira">
+                                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-domicilio">
+                                                                    <img src="./assets/imgs/visa.png" />
+                                                            </button>
+                                                        </td>
+                                                        <td class="bg-blue">3,29%</td>
+                                                        <td class="bg-blue">30 Dias</td>
+                                                        <td class="bg-green">2,29%</td>
+                                                        <td class="bg-green">1 Dia</td>
+                                                        <td class="bg-orange">3,29%</td>
+                                                        <td class="bg-orange">4,29%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="bg-white logo-bandeira">
+                                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-domicilio">
+                                                                    <img src="./assets/imgs/master.png" />
+                                                            </button>
+                                                        </td>
+                                                        <td class="bg-blue">4,53%</td>
+                                                        <td class="bg-blue">7 Dias <span class="badge badge-primary">FLEX</span></td>
+                                                        <td class="bg-green">2,22%</td>
+                                                        <td class="bg-green">1 Dia</td>
+                                                        <td class="bg-orange">3,22%</td>
+                                                        <td class="bg-orange">4,22%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="bg-white logo-bandeira">
+                                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-domicilio">
+                                                                    <img src="./assets/imgs/elo.png" />
+                                                            </button>
+                                                        </td>
+                                                        <td class="bg-blue">3,01%</td>
+                                                        <td class="bg-blue">30 Dias</td>
+                                                        <td class="bg-green">2,01%</td>
+                                                        <td class="bg-green">1 Dia</td>
+                                                        <td class="bg-orange">3,01%</td>
+                                                        <td class="bg-orange">4,01%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p><i class="fas fa-share share-rotated"></i> Clique na Bandeira para ver Domicílio Bancário</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Contrato de Antecipação Automática em Vigor
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Periodicidade</strong></p>
+                                            <p>Toda Quinta-feira</p>
+                                            <p class="bolder"><strong>Taxa de Antecipação</strong></p>
+                                            <p>2,75% a.m.</p>
+                                            <p class="bolder"><strong>Código EC Centralizador</strong></p>
+                                            <p>231342534</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Data de Início</strong></p>
+                                            <p>12/02/2018</p>
+                                            <p class="bolder"><strong>Percentual da Agenda para Antecipar</strong></p>
+                                            <p>50%</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Data de Fim</strong></p>
+                                            <p>13/02/2018</p>
+                                            <p class="bolder"><strong>Bandeiras a Antecipar</strong></p>
+                                            <p>Visa, Master e Elo</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Outras Taxas
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Aluguel de Equipamentos</strong></p>
+                                            <p>R$ 235,00</p>
+                                            <p class="bolder"><strong>Extrato Eletrônico - EDI</strong></p>
+                                            <p>R$ 350,00</p>
+                                            <p class="bolder"><strong>Conectividade TEF - Software Express</strong></p>
+                                            <p>R$ 150,00</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Dia de Pagamento</strong></p>
+                                            <p>25</p>
+                                            <p class="bolder"><strong>Dia de Pagamento</strong></p>
+                                            <p>10</p>
+                                            <p class="bolder"><strong>Dia de Pagamento</strong></p>
+                                            <p>10</p>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <p class="bolder"><strong>Situação</strong></p>
+                                            <p><i class="fas fa-check fa-color-green"></i> Em dia</p>
+                                            <p class="bolder"><strong>Situação</strong></p>
+                                            <p><i class="fas fa-times fa-color-red"></i> Em atraso</p>
+                                            <p class="bolder"><strong>Situação</strong></p>
+                                            <p><i class="fas fa-times fa-color-red"></i> Em atraso</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="equipamentos" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col col-md-12">
+                                            <h5 class="subtitle">
+                                                Equipamentos Instalados
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12 box-equipamentos">
+                                            <div class="row">
+                                                <div class="col col-md-4">
+                                                    <div class="row justify-content-md-center">
+                                                        <div class="col col-md-10 img-equipamento">
+                                                            <img class="img-equipamento" src="./assets/imgs/POS-WIFI.png" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row justify-content-md-center no-gutters pag-equipamento">
+                                                        <div class="col col-md-3 text-right">
+                                                            <i class="fas fa-angle-left pull-right"></i>
+                                                        </div>
+                                                        <div class="col col-md-4 text-center">
+                                                            1 de 2
+                                                        </div>
+                                                        <div class="col col-md-3 text-left">
+                                                            <i class="fas fa-angle-right"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <div class="row">
+                                                        <div class="col col-md-6">
+                                                            <p class="bolder"><strong>Marca</strong></p>
+                                                            <p>Gertec</p>
+                                                            <p class="bolder"><strong>Tecnologia</strong></p>
+                                                            <p>Wired</p>
+                                                            <p class="bolder"><strong>Chip</strong></p>
+                                                            <p>-</p>
+                                                            <p class="bolder"><strong>Modelo</strong></p>
+                                                            <p>PPC920 Dual</p>
+                                                        </div>
+                                                        <div class="col col-md-6">
+                                                                <p class="bolder"><strong>Data de Instalação</strong></p>
+                                                                <p>01/02/2018</p>
+                                                                <p class="bolder"><strong>Número Lógico</strong></p>
+                                                                <p>-</p>
+                                                                <p class="bolder"><strong>Número de Série</strong></p>
+                                                                <p>9781363</p>
+                                                                <p class="bolder"><strong>Valor do Aluguel Mensal</strong></p>
+                                                                <p><span class="aluguel-de">R$ 290</span> <span class="aluguel-por">R$ 190,00</span> até 25/02/2018</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-12 box-equipamentos">
+                                            <div class="row">
+                                                <div class="col col-md-4">
+                                                    <div class="row justify-content-md-center">
+                                                        <div class="col col-md-10 img-equipamento">
+                                                            <img class="img-equipamento" src="./assets/imgs/POS.png" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row justify-content-md-center no-gutters pag-equipamento">
+                                                        <div class="col col-md-3 text-right">
+                                                            <i class="fas fa-angle-left pull-right"></i>
+                                                        </div>
+                                                        <div class="col col-md-4 text-center">
+                                                            1 de 2
+                                                        </div>
+                                                        <div class="col col-md-3 text-left">
+                                                            <i class="fas fa-angle-right"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <div class="row">
+                                                        <div class="col col-md-6">
+                                                            <p class="bolder"><strong>Marca</strong></p>
+                                                            <p>Ingênico</p>
+                                                            <p class="bolder"><strong>Tecnologia</strong></p>
+                                                            <p>3G</p>
+                                                            <p class="bolder"><strong>Chip</strong></p>
+                                                            <p>TIM, Claro, VIVO</p>
+                                                            <p class="bolder"><strong>Modelo</strong></p>
+                                                            <p>PPC920 Dual</p>
+                                                        </div>
+                                                        <div class="col col-md-6">
+                                                                <p class="bolder"><strong>Data de Instalação</strong></p>
+                                                                <p>01/02/2018</p>
+                                                                <p class="bolder"><strong>Número Lógico</strong></p>
+                                                                <p>234311131</p>
+                                                                <p class="bolder"><strong>Número de Série</strong></p>
+                                                                <p>452253--DS2</p>
+                                                                <p class="bolder"><strong>Valor do Aluguel Mensal</strong></p>
+                                                                <p><span class="aluguel-de">R$ 290</span> <span class="aluguel-por">R$ 190,00</span> até 25/02/2018</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <input id="inputUser" type="text" ng-model="input.user" class="form-control" placeholder="Email, CNPJ ou Estabelecimento" required />
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

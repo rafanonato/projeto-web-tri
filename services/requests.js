@@ -85,4 +85,49 @@ app.service('requests', ['$http', '$q', function($http, $q) {
 
         return deferred.promise;
     }
+
+    this.getUserInfo = function (inputObj) {
+        let deferred = $q.defer();
+
+        $http.post("./assets/json/userInfo.json", JSON.stringify(inputObj))
+        //$http.post("http://10.11.20.129:8080/validaUsuario", JSON.stringify(inputObj))
+        
+        .then(
+            function (response) {
+
+                deferred.resolve(response.data);
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
+    this.getEstabelecimentos = function (inputObj) {
+        let deferred = $q.defer();
+
+        $http.post("./assets/json/listaEstabelecimentos.json", JSON.stringify(inputObj))
+        //$http.post("http://10.11.20.129:8080/validaUsuario", JSON.stringify(inputObj))
+        
+        .then(
+            function (response) {
+
+                deferred.resolve(response.data);
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
 }]);

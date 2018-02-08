@@ -18,4 +18,8 @@ app.config(function($routeProvider) {
         templateUrl : "./views/redefinir.html",
         css: './assets/css/login.css'
     })
+    .when("/main", {
+        templateUrl : "./views/main.html",
+        css: './assets/css/main.css'
+    })
 });
