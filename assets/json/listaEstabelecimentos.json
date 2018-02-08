@@ -1,0 +1,26 @@
+[{
+    "id": 1,
+    "name":"Hiper Anchieta",
+    "role":"Matriz",
+    "cnpj":"32.042.953/0001-73"
+},{
+    "id": 2,
+    "name":"Hiper Imigrantes",
+    "role":"Loja",
+    "cnpj":"32.042.953/0001-73"
+},{
+    "id": 3,
+    "name":"Hiper Raposo",
+    "role":"Loja",
+    "cnpj":"23.337.742/0001-22"
+},{
+    "id": 4,
+    "name":"Hiper Castelo",
+    "role":"Loja",
+    "cnpj":"32.042.953/0001-73"
+},{
+    "id": 5,
+    "name":"Hiper Dutra",
+    "role":"Loja",
+    "cnpj":"32.042.953/0001-73"
+}]

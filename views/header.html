@@ -1,0 +1,32 @@
+<div ng-controller="headerCtrl">
+    <nav class="navbar navbar-light bg-light">
+        <h1>
+            Dados cadastrais
+        </h1>
+        <div class="pull-right user-info">
+            <div class="user-col">
+                <img src="./assets/imgs/user.png" />
+            </div>
+            <div class="user-col">
+                <a id="username" href="#">{{userInfo.name}}</a><br />
+                <a id="userrole" href="#">{{userInfo.role}}</a>
+            </div>
+        </div>
+    </nav>
+    <div class="row main-content">
+        <div class="col col-md-12">
+            <div class="row">
+                <div class="col col-md-12">
+                    <form>
+                        <div id="the-basics" class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Estabelecimento</span>
+                            </div>
+                            <input id="inputEstabelecimento" class="typeahead" type="text" ng-model="input.estabelecimento" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
