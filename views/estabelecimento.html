@@ -1,0 +1,126 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div ng-include="'./views/tabs.html'"></div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Dados da Loja
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>Razão Social</strong></p>
+                            <p>{{dadosEstabelecimento.razaoSocial}}</p>
+                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                            <p>{{dadosEstabelecimento.nomeFantasia}}</p>
+                            <p class="bolder"><strong>MCC - Ramo de Atividade</strong></p>
+                            <p>{{dadosEstabelecimento.cdRamoAtividade}}</p>
+                            <p class="bolder"><strong>Categoria do EC</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>CNAE</strong></p>
+                            <p>{{dadosEstabelecimento.cnae}}</p>
+                            <p class="bolder"><strong>Nome de Contato</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>Telefone do Contato</strong></p>
+                            <p></p>
+                        </div>
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>Status da Loja</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>CNPJ</strong></p>
+                            <p>{{dadosEstabelecimento.cnpj}}</p>
+                            <p class="bolder"><strong>Código da Loja</strong></p>
+                            <p>{{dadosEstabelecimento.numeroEc}}</p>
+                            <p class="bolder"><strong>Data do Credenciamento</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>Gerente Comercial Tripag</strong></p>
+                            <p><br/>
+                            <br/>
+                            <br/>
+                            <p class="bolder"><strong>Email de Contato</strong></p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcCentral')">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Dados Centralizador
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcCentral')">
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>Código do EC</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcCentral.numeroEc}}</p>
+                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcCentral.nomeFantasia}}</p>
+                        </div>
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>CNPJ</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcCentral.cnpj}}</p>
+                            <p class="bolder"><strong>Razão Social</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcCentral.razaoSocial}}</p>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcMatriz')">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Dados da Matriz
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcMatriz')">
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>Código do EC</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcMatriz.numeroEc}}</p>
+                            <p class="bolder"><strong>Nome Fantasia</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcMatriz.nomeFantasia}}</p>
+                        </div>
+                        <div class="col col-md-6">
+                            <p class="bolder"><strong>CNPJ</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcMatriz.cnpj}}</p>
+                            <p class="bolder"><strong>Razão Social</strong></p>
+                            <p>{{dadosEstabelecimento.dadosEcMatriz.razaoSocial}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-12" ng-if="showItemEstabelecimento('dadosEcProprietarios')">
+                            <h5 class="subtitle">
+                                Dados dos Proprietários
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <table class="table table-sm borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome do Proprietário</th>
+                                        <th scope="col">CPF Proprietários</th>
+                                        <th scope="col">Percentual</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,9 @@
 .menu-content h5{
     margin-top:10px;
 }
+.menu-content li{
+    position:relative;
+}
 
 .menu-content a{
     color: #fff !important;
@@ -32,12 +35,32 @@
     margin-right:10px;
 }
 
+.menu-content i.focus{
+    margin-right:0;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display:none;
+    color:gold;
+}
+
+.menu-content i.focused{
+    display:block;
+}
+
 .navbar-brand{
     text-align:center;
 }
 
 .navbar{
     height:83px;
+    padding: 0 40px;
+    text-align: center;
+    color:#8e8e8e;
+}
+
+.navbar{
+    background-color: #ececec;
 }
 
 .navbar h1{
@@ -45,16 +68,23 @@
 }
 
 .navbar .navbar-brand{
-    height: 100%;
+    height: 70%;
     line-height: 0;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .navbar .navbar-brand .logo{
-    height:100%;
+    height: 100%;
 }
 
 .main-content{
     margin:15px 0;
+    color: #8e8e8e;
+}
+
+.nav-tabs a{
+    color:#8e8e8e;
 }
 
 .main-content .tab-content{
@@ -63,14 +93,33 @@
     padding:20px 0;
 }
 
+#main-container .navbar .user-info a, #main-container .navbar .user-info button{
+    cursor: pointer;
+}
+
 #main-container .navbar .user-col{
     float:right;
+    text-align: right;
+    margin:0 10px 0 0;
+}
+
+#main-container .navbar .user-col #username{
+    color: #8e8e8e;
+    margin: 5px 0px -5px 0;
+    font-weight:bold;
+    padding: 0;
+}
+
+#main-container .navbar .user-col #userrole{
+    color:#8e8e8e;
 }
 
 .main-content .subtitle{
     border-bottom: 1px solid #ccc;
     padding-bottom:4px;
-    margin:20px 0 10px 0;
+    margin: 30px 0 10px 0;
+    font-weight: bold;
+    color: #4a4a4a;
 }
 
 .main-content p{
@@ -146,6 +195,39 @@ a{
     width: 50%;
 }
 
+.tt-menu{
+    width:100%;
+}
+
+#inputEstabelecimento{
+    width:100%;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor:pointer;
+    padding: 10px 20px;
+    color:#8e8e8e;
+}
+
+#the-basics i{
+    position: absolute;
+    right: 15px;
+    bottom: 14px;
+    z-index: 333;
+}
+
+.openedMenu{
+    left:0% !important;
+    background-color:red;
+}
+
+.hide-menu{
+    left:0%;
+}
+
+#main-container .navbar #btnMenuBars{
+    display:none;
+}
 
 @media (max-width: 767.98px) {
     #menu-container{
@@ -153,7 +235,31 @@ a{
         z-index:9999;
         width:66%;
     }
+    .hide-menu{
+        left:-66%;
+    }
+    
     .navbar{
         max-height:50px;
     }
+    #main-container .navbar #btnMenuBars{
+        display:block;
+    }
+
+    #main-container .navbar .user-info img{
+        width: 35px;
+        margin: 13px 0px;
+    }
+}
+
+@media (max-width: 991px) {
+    .h1, h1 {
+        font-size: 1.6rem;
+    }
+
+    #main-container .navbar .user-col #username,#main-container .navbar .user-col #userrole{
+        display:none;
+    }
+
+    
 }

@@ -1,0 +1,80 @@
+{
+    "numeroEc":9999,
+    "equipamentos":[
+        {
+            "titulo":"Equipamentos Instalados",
+            "infos":{
+                "equipamentos":[
+                    {
+                        "tipo":"posWifi",
+                        "img":"POS-WIFI.png",
+                        "instalados":[
+                            {
+                                "marca":"Gertec",
+                                "tecnologia":"Wired",
+                                "chip":"-",
+                                "modelo":"PPC920 Dual",
+                                "dataInstalacao":"01/02/2018",
+                                "numeroLogico":"-",
+                                "numeroSerie":"9781363",
+                                "aluguel":{
+                                    "preco":"R$ 290",
+                                    "promocao":"R$ 190",
+                                    "prazo":"25/02/2018"
+                                }
+                            },{
+                                "marca":"Outra marca",
+                                "tecnologia":"Wired",
+                                "chip":"-",
+                                "modelo":"Outro Modelo",
+                                "dataInstalacao":"12/02/2018",
+                                "numeroLogico":"-",
+                                "numeroSerie":"312312",
+                                "aluguel":{
+                                    "preco":"R$ 250",
+                                    "promocao":"R$ 100",
+                                    "prazo":"12/02/2018"
+                                }
+                            }
+                        ],
+                        "ativo":true
+                    },{
+                        "tipo":"pos",
+                        "img":"POS.png",
+                        "instalados":[
+                            {
+                                "marca":"Ingênico",
+                                "tecnologia":"3G",
+                                "chip":"Tim, Claro, VIVO",
+                                "modelo":"PPC920 Dual",
+                                "dataInstalacao":"01/02/2018",
+                                "numeroLogico":"235311131",
+                                "numeroSerie":"452253-DS2",
+                                "aluguel":{
+                                    "preco":"R$ 290",
+                                    "promocao":"R$ 190",
+                                    "prazo":"25/02/2018"
+                                }
+                            },{
+                                "marca":"Outra marca",
+                                "tecnologia":"3G",
+                                "chip":"Claro, Oi, VIVO",
+                                "modelo":"Outro Modelo",
+                                "dataInstalacao":"12/02/2018",
+                                "numeroLogico":"-",
+                                "numeroSerie":"312312",
+                                "aluguel":{
+                                    "preco":"R$ 250",
+                                    "promocao":"R$ 100",
+                                    "prazo":"12/02/2018"
+                                }
+                            }
+                        ],
+                        "ativo":true
+                    }
+                ]
+            },
+            "ativo":true
+        }
+    ]
+}

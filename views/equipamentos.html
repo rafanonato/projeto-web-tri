@@ -1,0 +1,66 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div ng-include="'./views/tabs.html'"></div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                {{dadosEquipamentos.equipamentos[0].titulo}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEquipamentos('equipamentos',0)" ng-repeat="equipamento in dadosEquipamentos.equipamentos[0].infos.equipamentos">
+                        <div class="col col-md-12 box-equipamentos" ng-init="equipamentoAtual[$index] = 0">
+                            <div class="row">
+                                <div class="col col-md-4">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col col-md-10 img-equipamento">
+                                            <img class="img-equipamento" src="./assets/imgs/{{equipamento.img}}" />
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-md-center no-gutters pag-equipamento">
+                                        <div class="col col-md-3 text-right">
+                                            <button ng-click="paginacaoEquipamento('prev', $index)"><i class="fas fa-angle-left pull-right"></i></button>
+                                        </div>
+                                        <div class="col col-md-4 text-center">
+                                            {{equipamentoAtual[$index]+1}} de {{equipamento.instalados.length}}
+                                        </div>
+                                        <div class="col col-md-3 text-left">
+                                            <button ng-click="paginacaoEquipamento('next', $index)"><i class="fas fa-angle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-8">
+                                    <div class="row">
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Marca</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].marca}}</p>
+                                            <p class="bolder"><strong>Tecnologia</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].tecnologia}}</p>
+                                            <p class="bolder"><strong>Chip</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].chip}}</p>
+                                            <p class="bolder"><strong>Modelo</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].modelo}}</p>
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <p class="bolder"><strong>Data de Instalação</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].dataInstalacao}}</p>
+                                            <p class="bolder"><strong>Número Lógico</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].numeroLogico}}</p>
+                                            <p class="bolder"><strong>Número de Série</strong></p>
+                                            <p>{{equipamento.instalados[equipamentoAtual[$index]].numeroSerie}}</p>
+                                            <p class="bolder"><strong>Valor do Aluguel Mensal</strong></p>
+                                            <p><span class="aluguel-de">{{equipamento.instalados[equipamentoAtual[$index]].aluguel.preco}}</span> <span class="aluguel-por">{{equipamento.instalados[equipamentoAtual[$index]].aluguel.promocao}}</span> até {{equipamento.instalados[equipamentoAtual[$index]].aluguel.prazo}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

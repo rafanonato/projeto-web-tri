@@ -1,0 +1,102 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div ng-include="'./views/tabs.html'"></div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',0)">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                {{dadosProdutosTaxas.produtosETaxas[0].titulo}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',0)">
+                        <div class="col col-md-12">
+                            <table class="table table-sm table-taxas table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Bandeira</th>
+                                        <th scope="col">Crédito</th>
+                                        <th scope="col">Receber em</th>
+                                        <th scope="col">Débito</th>
+                                        <th scope="col">Receber em</th>
+                                        <th scope="col">Parcelado 2x a 6x</th>
+                                        <th scope="col">Parcelado acima 6x</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="taxa in dadosProdutosTaxas.produtosETaxas[0].infos.taxasContratadas">
+                                        <td class="bg-white logo-bandeira">
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-domicilio" ng-click="modalDomicilio=vssfd">
+                                                <img src="./assets/imgs/{{taxa.bandeira}}.png" />
+                                            </button>
+                                        </td>
+                                        <td class="bg-blue">{{taxa.credito.taxa}}</td>
+                                        <td class="bg-blue">{{taxa.credito.prazoReceber}} <span class="badge badge-primary" ng-show="taxa.credito.isFlex">FLEX</span></td>
+                                        <td class="bg-green">{{taxa.debito.taxa}}</td>
+                                        <td class="bg-green">{{taxa.debito.prazoReceber}}</td>
+                                        <td class="bg-orange">{{taxa.parcela.ateSeis}}</td>
+                                        <td class="bg-orange">{{taxa.parcela.seisOuMais}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><i class="fas fa-share share-rotated"></i> Clique na Bandeira para ver Domicílio Bancário</p>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',1)">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                {{dadosProdutosTaxas.produtosETaxas[1].titulo}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',1)">
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Periodicidade</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.periodicidade}}</p>
+                            <p class="bolder"><strong>Taxa de Antecipação</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.taxa}}</p>
+                            <p class="bolder"><strong>Código EC Centralizador</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.numeroEcCentral}}</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Data de Início</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.dataInicio}}</p>
+                            <p class="bolder"><strong>Percentual da Agenda para Antecipar</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.percentualAgenda}}</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Data de Fim</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.dataFim}}</p>
+                            <p class="bolder"><strong>Bandeiras a Antecipar</strong></p>
+                            <p>{{dadosProdutosTaxas.produtosETaxas[1].infos.bandeiras}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',2)">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                {{dadosProdutosTaxas.produtosETaxas[2].titulo}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemProdutosTaxas('produtosETaxas',2)">
+                        <div class="col col-md-12">
+                            <table class="table table-sm borderless">
+                                <tbody>
+                                    <tr ng-repeat="outraTaxa in dadosProdutosTaxas.produtosETaxas[2].infos.outrasTaxas">
+                                        <td>{{outraTaxa.nome}}</td>
+                                        <td>{{outraTaxa.valor}} <span class="badge badge-primary" ng-show="taxa.credito.isFlex">FLEX</span></td>
+                                        <td>{{outraTaxa.diaPagto}}</td>
+                                        <td>{{outraTaxa.status}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

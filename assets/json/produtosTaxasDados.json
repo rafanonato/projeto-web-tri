@@ -1,0 +1,120 @@
+{
+    "numeroEc":9999,
+    "produtosETaxas":[
+        {
+            "titulo":"Taxas Contratadas",
+            "infos":{
+                "taxasContratadas":[
+                    {
+                        "bandeira":"tricard",
+                        "credito":{
+                            "taxa":"4,49%",
+                            "prazoReceber":"2 Dias",
+                            "isFlex":true
+                        },
+                        "debito":{
+                            "taxa":"4,49%",
+                            "prazoReceber":"1 Dia"
+                        },
+                        "parcela":{
+                            "ateSeis":"3,49%",
+                            "seisOuMais":"4,4%"
+                        },
+                        "domicilio":{
+                            "idBanco":341,
+                            "nomeBanco":"Itaú SA",
+                            "ag":"0960",
+                            "conta":"86563-2",
+                            "tipo":"Poupança",
+                            "liberado":true
+                        }
+                    },{
+                        "bandeira":"visa",
+                        "credito":{
+                            "taxa":"3,29%",
+                            "prazoReceber":"30 Dias",
+                            "isFlex":true
+                        },
+                        "debito":{
+                            "taxa":"4,49%",
+                            "prazoReceber":"1 Dia"
+                        },
+                        "parcela":{
+                            "ateSeis":"3,29%",
+                            "seisOuMais":"4,29%"
+                        },
+                        "domicilio":{
+                            "idBanco":237,
+                            "nomeBanco":"Bradesco",
+                            "ag":"41567",
+                            "conta":"12309-2",
+                            "tipo":"Conta Corrente",
+                            "liberado":false
+                        }
+                    },{
+                        "bandeira":"mastercard",
+                        "credito":{
+                            "taxa":"4,53%",
+                            "prazoReceber":"7 dias",
+                            "isFlex":true
+                        },
+                        "debito":{
+                            "taxa":"2,22%",
+                            "prazoReceber":"1 dia"
+                        },
+                        "parcela":{
+                            "ateSeis":"3,22%",
+                            "seisOuMais":"4,22%"
+                        },
+                        "domicilio":{
+                            "idBanco":341,
+                            "nomeBanco":"Itaú SA",
+                            "ag":"0960",
+                            "conta":"86563-2",
+                            "tipo":"Poupança",
+                            "liberado":true
+                        }
+                    }
+                ]
+            },
+            "ativo":true
+        },{
+            "titulo":"Contrato de Antecipação Automática em Vigor",
+            "infos":{
+                "periodicidade":"Toda Quinta-feira",
+                "taxa":"2,75% a.m.",
+                "numeroEcCentral":213123321,
+                "dataInicio":"12/02/2018",
+                "dataFim":"15/02/2018",
+                "percentualAgenda":"50%",
+                "bandeiras":["Visa","Master","Elo"]
+            },
+            "ativo":true
+        },{
+            "titulo":"Contrato de Antecipação Automática em Vigor",
+            "infos":{
+                "outrasTaxas":[
+                    {
+                        "nome":"Aluguel de Equipamentos",
+                        "valor":"R$ 235,00",
+                        "diaPagto":"25",
+                        "status":"em dia"
+                    },
+                    {
+                        "nome":"Extrato Eletrônico - EDI",
+                        "valor":"R$ 350,00",
+                        "diaPagto":"15",
+                        "status":"em atraso"
+                    },
+                    {
+                        "nome":"Conectividade TEF - Software Express",
+                        "valor":"R$ 150,00",
+                        "diaPagto":"10",
+                        "status":"em atraso"
+                    }
+                ]
+            },
+            "ativo":true
+        }
+    ]
+}

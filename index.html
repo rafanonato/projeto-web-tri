@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tripag</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="./assets/imgs/favicon.png" />
 
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -20,7 +23,7 @@
     <script src="./assets/js/bootstrap.min.js"></script>
 
     <!-- FONT AWESOME -->
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="./assets/css/all.css" rel="stylesheet">
 
     <!-- TYPE AHEAD -->
     <script src="./assets/js/typeahead.jquery.js"></script>
@@ -29,11 +32,14 @@
 
     <!-- MODULE E CONTROLLERS -->
     <script src="./assets/js/module.app.js"></script>
+    <script src="./ctrls/index.js"></script>
     <script src="./ctrls/login.js"></script>
     <script src="./ctrls/redefinir.js"></script>
     <script src="./ctrls/recuperar.js"></script>
     <script src="./ctrls/main.js"></script>
     <script src="./ctrls/header.js"></script>
+    <script src="./ctrls/alterar-senha.js"></script>
+    <script src="./ctrls/modal.js"></script>
 
     <!-- SERVICES -->
     <script src="./services/requests.js"></script>
@@ -43,6 +49,22 @@
     
 </head>
 <body>
-    <div ng-view></div>
+    
+    <div class="container-fluid" ng-controller="indexCtrl">
+        <div class="row no-gutters" ng-if="!activeTab('/login') && !activeTab('/recuperar') && !activeTab('/redefinir')">
+            <div ng-include="'./views/modal-domicilio.html'"></div>
+            <div ng-include="'./views/modal-alterar-senha.html'"></div>
+            <div id="menu-container" class="col col-md-4 col-lg-3 hide-menu">
+                <div ng-include="'./views/menu.html'"></div>
+            </div>
+            <div id="main-container" class="col col-md-8 col-lg-9">
+                <div ng-include="'./views/header.html'"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+        <div class="row justify-content-sm-center" ng-if="activeTab('/redefinir') || activeTab('/recuperar') || activeTab('/login')">
+            <div ng-view></div>
+        </div>
+    </div>
 </body>
 </html>

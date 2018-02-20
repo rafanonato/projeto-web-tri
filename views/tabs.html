@@ -1,14 +1,14 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Estabelecimento</a>
+        <a class="nav-link" ng-class="{active:activeTab('/estabelecimento') || activeTab('/')}" href="#/estabelecimento">Estabelecimento</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#!/">Endereços</a>
+        <a class="nav-link" ng-class="{active:activeTab('/enderecos')}" href="#/enderecos">Endereços</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Produtos e Taxas</a>
+        <a class="nav-link" ng-class="{active:activeTab('/produtos-e-taxas')}" href="#/produtos-e-taxas">Produtos e Taxas</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Equipamentos</a>
+        <a class="nav-link" ng-class="{active:activeTab('/equipamentos')}" href="#/equipamentos">Equipamentos</a>
     </li>
 </ul>

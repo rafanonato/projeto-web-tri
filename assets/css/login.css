@@ -38,6 +38,10 @@ body{
   font-size:12px;
 }
 
+a.btn-primary,a.btn-primary:hover{
+  color:#fff;
+}
+
 .box-login .input-group{
   position:relative;
 }
@@ -49,4 +53,16 @@ body{
   border: none;
   background-color: #fff;
   z-index:999;
+}
+
+.feedback{
+  background-color:#6c788a !important;
+  color:#fff;
+  font-weight:bolder;
+}
+
+@media (min-width: 767.98px) {
+  .box-login-container{
+    width:400px;
+  }
 }

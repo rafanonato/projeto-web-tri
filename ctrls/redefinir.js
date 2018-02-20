@@ -23,6 +23,7 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
 
         let regPass = new RegExp('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$', 'g');
 
+        ///testa RegExp para verificar se a senha atinge os requisitos minimos
         if(regPass.test($scope.input.pass)){
             $scope.inputStatus = '';
 
@@ -38,11 +39,6 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
                     $scope.input = {pass:'',confirmation:''};
                     //exibe mensagem de sucesso ou erro
                     $scope.inputStatus = data.status;
-                    
-                    if(data.status === 'OK'){
-                        $('.box-login .box-content h6').text('Informação Importante');
-                        $('.box-login .box-content p').text('Sua senha foi alterada com sucesso.');
-                    }
 
                 })
                 .catch(function(err) { 

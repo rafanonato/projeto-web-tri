@@ -1,32 +1,28 @@
-<div class="container-fluid" ng-controller="recuperarCtrl">
-    <div class="row justify-content-sm-center">
-        <div class="col col-lg-4 col-md-6 col-sm-8">
-            <div class="box-login rounded">
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <img class="logo" src="./assets/imgs/logo.jpg" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-lg-12 box-content">
-                        <h6><strong>Recuperação de Senha</strong></h6>
-                        <p>Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.</p>
-                        <form id="html_element" ng-submit="onSubmit()" ng-show="inputStatus !== 'OK'">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Usuário</span>
-                                </div>
-                                <input id="inputUser" type="text" ng-model="input.user" class="form-control" placeholder="Email, CNPJ ou Estabelecimento" required />
-                            </div>
-                            <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'NOK'">Usuário não existe. Caso precise de ajuda, ligue para a nossa central de atendimento: 0800.9999.9999</div>
-                            <input class="btn btn-primary btn-block" type="submit" value="Enviar">   
-                            <div class="g-recaptcha" data-sitekey="6LdrvUMUAAAAALSkGqb2d4tSQ0Y-4H3MfEoEH25v" data-callback="afterCaptcha" data-size="invisible"></div>                         
-                        </form>
-                        <div class="alert alert-success feedback" role="alert" ng-show="inputStatus === 'OK'"></div>
-                        <a href="#!/login">Voltar</a><br />
-                    </div>
-                </div>         
+<div class="col col-md-12 box-login-container">
+    <div class="box-login rounded">
+        <div class="row">
+            <div class="col col-lg-12">
+                <img class="logo" src="./assets/imgs/logo.jpg" />
             </div>
         </div>
+        <div class="row">
+            <div class="col col-lg-12">
+                <h6>Recuperação de Senha</h6>
+                <p>Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.</p>
+                <form id="html_element" ng-submit="onSubmit()" ng-show="inputStatus !== 'OK'">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Usuário</span>
+                        </div>
+                        <input id="inputUser" type="text" ng-model="input.user" class="form-control" placeholder="Email, CNPJ ou Estabelecimento" required />
+                    </div>
+                    <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'NOK'">Usuário não existe. Caso precise de ajuda, ligue para a nossa central de atendimento: 0800.9999.9999</div>
+                    <input class="btn btn-primary btn-block" type="submit" value="Enviar">   
+                    <div class="g-recaptcha" data-sitekey="6LdrvUMUAAAAALSkGqb2d4tSQ0Y-4H3MfEoEH25v" data-callback="afterCaptcha" data-size="invisible"></div>                         
+                </form>
+                <div class="alert alert-dark feedback" role="alert" ng-show="inputStatus === 'OK'"></div>
+                <a href="#/login">Voltar</a><br />
+            </div>
+        </div>         
     </div>
 </div>

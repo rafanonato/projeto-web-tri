@@ -1,0 +1,62 @@
+<div class="modal fade" id="modal-domicilio" tabindex="-1" role="dialog" ng-controller="alterarSenhaCtrl">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Domicílio Bancário - {{modalDomicilio}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Bandeira Visa</p>
+                        <img class="modal-bandeira" src="./assets/imgs/visa.png" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-sm borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img class="modal-banco" src="./assets/imgs/itau.png" />
+                                            </td>
+                                            <td>
+                                                <p class="bolder"><strong>Código</strong><br />
+                                                341</p>
+                                            </td>
+                                            <td>
+                                                <p class="bolder"><strong>Conta</strong><br />
+                                                86563-2</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="bolder"><strong>Banco</strong><br />
+                                                Itaú SA</p>
+                                            </td>
+                                            <td>
+                                                <p class="bolder"><strong>Agência</strong><br />
+                                                0960</p>
+                                            </td>
+                                            <td>
+                                                <p class="bolder"><strong>Tipo de Conta</strong><br />
+                                                Poupança</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-secondary btn-block" disabled>DOMICÍLIO BANCÁRIO TRAVADO <i class="fas fa-lock"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

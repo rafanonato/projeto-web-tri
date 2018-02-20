@@ -1,28 +1,38 @@
 <div ng-controller="headerCtrl">
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
+        <a href="#/" id="btnMenuBars" ><i class="fas fa-bars"></i></a>
         <h1>
             Dados cadastrais
         </h1>
-        <div class="pull-right user-info">
-            <div class="user-col">
-                <img src="./assets/imgs/user.png" />
+        <div class="dropdown show user-info">
+            <a href="#/" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="user-col">
+                    <img src="./assets/imgs/user.png" />
+                </div>
+                <div class="user-col">
+                    <p id="username">{{userInfo.name}}</p>
+                    <p id="userrole">{{userInfo.role}}</p>
+                </div>
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#/"><i class="fas fa-user fa-fw"></i> Meus Dados</a>
+                <button type="button" id="username" class="dropdown-item" data-toggle="modal" data-target="#modal-alterar-senha">
+                        <i class="fas fa-lock fa-fw"></i> Alterar Senha
+                </button>
+                <a class="dropdown-item" href="#/" ng-click="killSession()"><i class="fas fa-sign-out-alt fa-fw"></i> Sair</a>
             </div>
-            <div class="user-col">
-                <a id="username" href="#">{{userInfo.name}}</a><br />
-                <a id="userrole" href="#">{{userInfo.role}}</a>
-            </div>
-        </div>
+          </div>
     </nav>
     <div class="row main-content">
         <div class="col col-md-12">
             <div class="row">
                 <div class="col col-md-12">
                     <form>
+                        <label class="font-weight-bold" for="inputEstabelecimento">Estabelecimentos</label>
                         <div id="the-basics" class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Estabelecimento</span>
-                            </div>
                             <input id="inputEstabelecimento" class="typeahead" type="text" ng-model="input.estabelecimento" class="form-control" />
+                            <i class="fas fa-search"></i>
                         </div>
                     </form>
                 </div>

@@ -21,13 +21,17 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
         console.log('err: '+err);
     });
 
+    //função executada no submit do form de login (executa o captcha)
     $scope.onSubmit = function(){
         grecaptcha.execute();
+        //$scope.checkInputs()
     }
 
-
-    //função executada no submit do form de login
+    //função executada no submit do form de login (depois do captcha)
     $scope.checkInputs = function(){
+
+        //sempre reseta o captcha (pode dar erro se não for resetada)
+        grecaptcha.reset();
 
         $scope.inputStatus = '';
 
@@ -35,11 +39,11 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
         if($scope.input.user && $scope.input.pass){
 
             let regCNPJ = new RegExp('\\d{2}.?\\d{3}.?\\d{3}\\/?\\d{4}-?\\d{2}', 'g');
-            let regEMAIL = new RegExp('@');
+            let regEMAIL = new RegExp('^[a-zA-Z0-9.!#$%&\'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$','g');
 
             let inputObj = {'email':'','cnpj':'', 'numeroEc':'', 'password':$scope.input.pass};
 
-            //testa RegExp e em caso positivo, seta a propriedade do objeto corresponente
+            //testa RegExp e em caso positivo, seta a propriedade do objeto correspondente
             if(regEMAIL.test($scope.input.user)){
                 inputObj.email = $scope.input.user;
             }else if(regCNPJ.test($scope.input.user) && ($scope.input.user.length === 14 || $scope.input.user.length === 18)){
@@ -55,8 +59,9 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
                 if(data.status === "OK") {
                     //salva a sessão e envia o usuário para a página interna
                     $window.sessionStorage.setItem('userId', data.id);
+                    $window.sessionStorage.setItem('numeroEc', data.id);
                     if ($window.sessionStorage.getItem('userId')){
-                        $location.path('main');
+                        $location.path('estabelecimento');
                     }
                 //se o usuário não tem autorização
                 } else if(data.status === "NOK") {
@@ -69,30 +74,36 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
                 }
             })
             .catch(function(err) { 
-                console.log('err: '+err);
+                //se o usuário não tem autorização
+                if(err.status === 401) {
+                    $scope.input = {user:'',pass:''};
+                    $scope.inputStatus = "NOK";
+                }
             });
 
         }
     }
 
-}]);
-
-$( document ).ready(function() {
-    let typePass = 'password';
-
-    //ao clicar no ícone 'eye' o script alterna o type entre 'senha' e 'text'
-    $("#showPass").on("click", function() {
-        typePass = (typePass === "text")? 'password':'text';
-        $('#inputPass')[0].type = typePass;
-    });    
+    $( document ).ready(function() {
+        let typePass = 'password';
     
-    //ao focar, limpar feedbacks visuais de erro
-    $('.form-control').on("click",function(){
-        angular.element($('.form-control')).scope().inputStatus = '';
+        //ao clicar no ícone 'eye' o script alterna o type entre 'senha' e 'text'
+        $("#showPass").on("click", function() {
+            typePass = (typePass === "text")? 'password':'text';
+            $('#inputPass')[0].type = typePass;
+        });    
+        
+        //ao focar, limpar feedbacks visuais de erro
+        $('.form-control').on("click",function(){
+            angular.element($('.form-control')).scope().inputStatus = '';
+        });
+    
     });
 
-});
+}]);
 
+//depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
 function afterCaptcha(token) {
+        
     angular.element($('.form-control')).scope().checkInputs();
 }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-navbar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#/">
         <img class="logo" src="./assets/imgs/logo.jpg" />
     </a>
 </nav>
@@ -7,34 +7,34 @@
     <h5>Dados Cadastrais</h5>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="#!/"><i class="fas fa-home fa-fw"></i>Estabelecimentos</a>
+            <i class="fas fa-caret-right focus" ng-class="{focused:activeTab('/estabelecimento') || activeTab('/')}"></i><a class="nav-link" href="#/estabelecimento"><i class="fas fa-home fa-fw"></i>Estabelecimento</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-map-marker fa-fw"></i>Endereços</a>
+            <i class="fas fa-caret-right focus" ng-class="{focused:activeTab('/enderecos')}"></i><a class="nav-link" href="#/enderecos"><i class="fas fa-map-marker fa-fw"></i>Endereços</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-dollar-sign fa-fw"></i>Produtos e Taxas</a>
+            <i class="fas fa-caret-right focus" ng-class="{focused:activeTab('/produtos-e-taxas')}"></i><a class="nav-link" href="#/produtos-e-taxas"><i class="fas fa-dollar-sign fa-fw"></i>Produtos e Taxas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-tablet fa-fw"></i>Equipamentos</a>
+            <i class="fas fa-caret-right focus" ng-class="{focused:activeTab('/equipamentos')}"></i><a class="nav-link" href="#/equipamentos"><i class="fas fa-tablet fa-fw"></i>Equipamentos</a>
         </li>
     </ul>
     <h5>Usuários</h5>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users fa-fw"></i>Lista de Usuários</a>
+            <a class="nav-link" href="#/"><i class="fas fa-users fa-fw"></i>Lista de Usuários</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-user-plus fa-fw"></i>Adicionar Usuário</a>
+            <a class="nav-link" href="#/"><i class="fas fa-user-plus fa-fw"></i>Adicionar Usuário</a>
         </li>
     </ul>
     <h5>Suporte</h5>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-question-circle fa-fw"></i>Ajuda</a>
+            <a class="nav-link" href="#/"><i class="fas fa-question-circle fa-fw"></i>Ajuda</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-comment-alt fa-fw"></i>Atendimento</a>
+            <a class="nav-link" href="#/"><i class="fas fa-comment-alt fa-fw"></i>Atendimento</a>
         </li>
     </ul>
 </div>

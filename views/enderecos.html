@@ -1,0 +1,69 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div ng-include="'./views/tabs.html'"></div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="row" ng-if="showItemEstabelecimento('enderecoEc',0)">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Endereço da Loja
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('enderecoEc',0)">
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Nome do Logradouro</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[0].dsLogradouro}}</p>
+                            <p class="bolder"><strong>Bairro</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[0].dsBairro}}</p>
+                            <p class="bolder"><strong>Telefone de Comercial</strong></p>
+                            <p></p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Número</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>Município</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[0].dsCidade}}</p>
+                            <p class="bolder"><strong>Telefone Celular</strong></p>
+                            <p></p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Complemento</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>UF</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[0].dsEstado}}</p>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('enderecoEc',1)">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Endereço de Correspondência
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="showItemEstabelecimento('enderecoEc',1)">
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Nome do Logradouro</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[1].dsLogradouro}}</p>
+                            <p class="bolder"><strong>Bairro</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[1].dsBairro}}</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Número</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>Município</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[1].dsCidade}}</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p class="bolder"><strong>Complemento</strong></p>
+                            <p></p>
+                            <p class="bolder"><strong>UF</strong></p>
+                            <p>{{dadosEstabelecimento.enderecoEc[1].dsEstado}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
