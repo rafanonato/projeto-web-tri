@@ -52,7 +52,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
         let deferred = $q.defer();
 
         //$http.post("./assets/json/userEmail.json", JSON.stringify(inputObj))
-        $http.post("http://localhost:8083/redefine-senha", JSON.stringify(inputObj))
+        $http.post("http://localhost:8082/redefinesenha", JSON.stringify(inputObj))
         
         .then(
             function (response) {
@@ -141,13 +141,13 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     //request para pegar dados do estabelecimento
     this.getDadosEstabelecimento = function (inputObj) {
         let deferred = $q.defer();
-        console.log(inputObj)
         //$http.get("./assets/json/estabelecimentoDados.json?codigoEc="+inputObj.codigoEc)
         $http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
 
         .then(
             function (response) {
-
+                response.data.cnae = response.data.cnae + " - Comércio varejista de mercadorias em geral, com predominância de produtos";
+                console.log(response.data)
                 deferred.resolve(response.data);
             },
 

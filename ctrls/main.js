@@ -54,6 +54,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
             return ativo;
     
         }
+
     })
     .catch(function(err) { 
         console.log('err: '+err);
@@ -83,7 +84,11 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
         }
     }
 
-    
+    $( document ).ready(function() {
+
+        
+
+    });
 
 }]);
 

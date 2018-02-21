@@ -24,7 +24,7 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
                 string:estabelecimento.tipoEstabelecimento + ' - '+ estabelecimento.numeroEc +' - '+ estabelecimento.razaoSocial +' - '+ estabelecimento.cnpj
             }
             //se o numero do elemento atual for igual ao numeroEc gravado na session, ele é exibido em primeiro na lista de ECs
-            if(estabelecimento.id === Number($window.sessionStorage.getItem('numeroEc'))) {
+            if(estabelecimento.numeroEc === Number($window.sessionStorage.getItem('numeroEc'))) {
                 $scope.listaEstabelecimentos.unshift(el.string);
             } else{
                 $scope.listaEstabelecimentos.push(el.string);
@@ -49,7 +49,6 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
         $('.typeahead').typeahead('val', $scope.listaEstabelecimentos[0]);
 
         $('.tt-menu').on("click",function(){
-            console.log('teste3')
             let numEc = [];
             //pega o numero do EC na string do campo
             numEc = $('.typeahead').typeahead('val').split( ' ' );

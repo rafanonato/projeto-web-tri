@@ -47,7 +47,7 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
             if(regEMAIL.test($scope.input.user)){
                 inputObj.email = $scope.input.user;
             }else if(regCNPJ.test($scope.input.user) && ($scope.input.user.length === 14 || $scope.input.user.length === 18)){
-                inputObj.cnpj = $scope.input.user;
+                inputObj.cnpj = removeChars($scope.input.user);
             } else {
                 inputObj.numeroEc = $scope.input.user;
             }
@@ -107,3 +107,10 @@ function afterCaptcha(token) {
         
     angular.element($('.form-control')).scope().checkInputs();
 }
+
+function removeChars(string){
+    string = string.replace(/[^0-9]/g,'');
+
+    return string;
+}
+
