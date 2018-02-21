@@ -1,8 +1,9 @@
 <div class="modal fade" id="modal-domicilio" tabindex="-1" role="dialog" ng-controller="modalCtrl">
+    <input type="text" id="modalObj" value="" />
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Domicílio Bancário - {{modalDomicilio}}</h5>
+                <h5 class="modal-title">Domicílio Bancário</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,8 +11,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <p>Bandeira Visa</p>
-                        <img class="modal-bandeira" src="./assets/imgs/visa.png" />
+                        <p>Bandeira {{modalDomicilio.bandeira}}</p>
+                        <img class="modal-bandeira" src="./assets/imgs/{{modalDomicilio.bandeira}}.png" />
                     </div>
                     <div class="col-md-8">
                         <div class="row">
@@ -24,25 +25,30 @@
                                             </td>
                                             <td>
                                                 <p class="bolder"><strong>Código</strong><br />
-                                                341</p>
+                                                    {{modalDomicilio.domicilio.idBanco}}
+                                                </p>
                                             </td>
                                             <td>
                                                 <p class="bolder"><strong>Conta</strong><br />
-                                                86563-2</p>
+                                                    {{modalDomicilio.domicilio.conta}}
+                                                </p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <p class="bolder"><strong>Banco</strong><br />
-                                                Itaú SA</p>
+                                                    {{modalDomicilio.domicilio.nomeBanco}}
+                                                </p>
                                             </td>
                                             <td>
                                                 <p class="bolder"><strong>Agência</strong><br />
-                                                0960</p>
+                                                    {{modalDomicilio.domicilio.ag}}
+                                                </p>
                                             </td>
                                             <td>
                                                 <p class="bolder"><strong>Tipo de Conta</strong><br />
-                                                Poupança</p>
+                                                    {{modalDomicilio.domicilio.tipo}}
+                                                </p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -51,7 +57,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-secondary btn-block" disabled>DOMICÍLIO BANCÁRIO TRAVADO <i class="fas fa-lock"></i></button>
+                                <button type="button" class="btn btn-secondary btn-block" ng-show="modalDomicilio.liberado === false" disabled>DOMICÍLIO BANCÁRIO TRAVADO <i class="fas fa-lock"></i></button>
+                                <button type="button" class="btn btn-success btn-block" ng-show="modalDomicilio.liberado === true" disabled>DOMICÍLIO BANCÁRIO LIBERADO</button>
                             </div>
                         </div>
                     </div>

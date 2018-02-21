@@ -7,7 +7,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
 
     $scope.dadosEstabelecimento = {};
     $scope.equipamentoAtual = [];
-    $rootScope.modalDomicilio = "";
+    $rootScope.modalDomicilio = {};
 
     //pega os dados do estabelecimento
     requests.getDadosEstabelecimento($window.sessionStorage)
@@ -84,11 +84,11 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
         }
     }
 
-    $( document ).ready(function() {
+    $scope.openModal = function(pos){
 
-        
-
-    });
+        $rootScope.modalDomicilio = $scope.dadosProdutosTaxas.produtosETaxas[0].infos.taxasContratadas[pos];
+        $('#modal-domicilio').modal();
+    }
 
 }]);
 

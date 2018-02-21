@@ -25,8 +25,6 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     //request para verificar usuário no login
     this.checkUserPass = function (inputObj) {
         let deferred = $q.defer();
-
-        console.log(JSON.stringify(inputObj))
         
         //$http.post("./assets/json/users.json", JSON.stringify(inputObj))
         $http.post("http://localhost:8082/validaUsuario", JSON.stringify(inputObj))
@@ -147,7 +145,6 @@ app.service('requests', ['$http', '$q', function($http, $q) {
         .then(
             function (response) {
                 response.data.cnae = response.data.cnae + " - Comércio varejista de mercadorias em geral, com predominância de produtos";
-                console.log(response.data)
                 deferred.resolve(response.data);
             },
 
