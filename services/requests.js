@@ -74,7 +74,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     this.redefine = function (inputObj) {
         let deferred = $q.defer();
 
-        $http.post("./assets/json/redefine.json", JSON.stringify(inputObj))
+        $http.post("http://127.0.0.1:7000/atualizarSenha", JSON.stringify(inputObj))
         
         
         .then(

@@ -13,7 +13,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
         if(regPass.test($scope.input.pass)){
             $scope.inputStatus = '';
 
-            let inputObj = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.pass};
+            let inputObj = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.currentPass};
 
             requests.checkUserPass(inputObj)
             .then(function(data) { 
@@ -22,7 +22,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                     //faz a verificação dos campos e dá feedback visual em caso de erro 
                     if($scope.input.pass === $scope.input.confirmation){
-                        let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'pass':''};
+                        let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.pass};
 
                         //envia a nova senha para o servidor
                         requests.redefine(inputObjR)
@@ -31,6 +31,10 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
                             $scope.input = {currentPass:'', pass:'',confirmation:''};
                             //exibe mensagem de sucesso ou erro
                             $scope.inputStatus = data.status;
+                            if(data.status === "OK"){
+                                document.getElementById("success").style.display = 'none';
+                                document.getElementById("success1").style.display = 'inline';
+                            }
 
                         })
                         .catch(function(err) { 
@@ -59,7 +63,12 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
     }
 
-    $( document ).ready(function() { 
+    $( document ).ready(function() {
+        
+        $("#buttonOk").on("click", function(){
+            $window.sessionStorage.clear();
+            $window.location.reload();
+        }); 
     
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
@@ -70,7 +79,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
             $scope.inputStatus = '';
             $route.reload();
         });  
-    
+
     });
 
 }]);

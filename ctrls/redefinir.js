@@ -30,7 +30,7 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
              //faz a verificação dos campos e dá feedback visual em caso de erro 
             if($scope.input.pass === $scope.input.confirmation){
 
-                let inputObj = {'pass':''};
+                let inputObj = {'password':$scope.input.pass , 'numeroEc':'18881'};
 
                 //envia a nova senha para o servidor
                 requests.redefine(inputObj)
