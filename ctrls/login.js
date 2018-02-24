@@ -56,26 +56,31 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
             requests.checkUserPass(inputObj)
             .then(function(data) { 
                 //se o usuário tem autorização
-                if(data.status === "OK") {
-                    //salva a sessão e envia o usuário para a página interna
-                    $window.sessionStorage.setItem('userId', data.id);
-                    $window.sessionStorage.setItem('numeroEc', data.id);
-                    if ($window.sessionStorage.getItem('userId')){
-                        $location.path('estabelecimento');
-                    }
-                //se o usuário não tem autorização
-                } else if(data.status === "NOK") {
-                    $scope.input = {user:'',pass:''};
-                    $scope.inputStatus = data.status;
-                //se o usuário foi bloqueado
-                } else if(data.status === "blocked") {
-                    //envia o usuário para a página de recuperar a senha
-                    $location.path('recuperar');
+                // if(data.status === "OK" || ) {
+                //     //salva a sessão e envia o usuário para a página interna
+                //     $window.sessionStorage.setItem('userId', data.id);
+                //     $window.sessionStorage.setItem('numeroEc', data.id);
+                //     if ($window.sessionStorage.getItem('userId')){
+                //         $location.path('estabelecimento');
+                //     }
+                // //se o usuário não tem autorização
+                // } else if(data.status === "NOK") {
+                //     $scope.input = {user:'',pass:''};
+                //     $scope.inputStatus = data.status;
+                // //se o usuário foi bloqueado
+                // } else if(data.status === "blocked") {
+                //     //envia o usuário para a página de recuperar a senha
+                //     $location.path('recuperar');
+                // }
+                $window.sessionStorage.setItem('userId', data.id);
+                $window.sessionStorage.setItem('numeroEc', data.id);
+                if ($window.sessionStorage.getItem('userId')){
+                    $location.path('estabelecimento');
                 }
             })
             .catch(function(err) { 
                 //se o usuário não tem autorização
-                if(err.status === 401) {
+                if(err.status === 401 || err.status === 404) {
                     $scope.input = {user:'',pass:''};
                     $scope.inputStatus = "NOK";
                 }

@@ -18,38 +18,44 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
             requests.checkUserPass(inputObj)
             .then(function(data) { 
                 //se a senha atual estiver correta
-                if(data.status === "OK") {
+                // if(data.status === "OK") {
 
-                    //faz a verificação dos campos e dá feedback visual em caso de erro 
-                    if($scope.input.pass === $scope.input.confirmation){
-                        let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'pass':''};
+                    
+                // } else if(data.status === "NOK") {
+                //     $scope.input = {currentPass:'',user:'',pass:''};
+                //     $scope.inputStatus = data.status;
+                // }
 
-                        //envia a nova senha para o servidor
-                        requests.redefine(inputObjR)
-                        .then(function(data) { 
+                //faz a verificação dos campos e dá feedback visual em caso de erro 
+                if($scope.input.pass === $scope.input.confirmation){
+                    let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'pass':''};
 
-                            $scope.input = {currentPass:'', pass:'',confirmation:''};
-                            //exibe mensagem de sucesso ou erro
-                            $scope.inputStatus = data.status;
+                    //envia a nova senha para o servidor
+                    requests.redefine(inputObjR)
+                    .then(function(data) { 
 
-                        })
-                        .catch(function(err) { 
-                            console.log('err: '+err);
-                        });
-                        
-                    //se os campos estão diferentes
-                    } else {
-                        $scope.input = {currentPass: '',pass:'',confirmation:''};
-                        $scope.inputStatus = 'different';
+                        $scope.input = {currentPass:'', pass:'',confirmation:''};
+                        //exibe mensagem de sucesso ou erro
+                        $scope.inputStatus = data.status;
 
-                    }
-                } else if(data.status === "NOK") {
-                    $scope.input = {currentPass:'',user:'',pass:''};
-                    $scope.inputStatus = data.status;
+                    })
+                    .catch(function(err) { 
+                        console.log('err: '+err);
+                    });
+                    
+                //se os campos estão diferentes
+                } else {
+                    $scope.input = {currentPass: '',pass:'',confirmation:''};
+                    $scope.inputStatus = 'different';
                 }
             })
             .catch(function(err) { 
                 console.log('err: '+err);
+
+                if(err.status === 401) {
+                    $scope.input = {currentPass:'',user:'',pass:''};
+                    $scope.inputStatus = data.status;
+                }
             });
 
         } else{

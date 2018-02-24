@@ -1,0 +1,83 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <h5 class="subtitle">
+                                Adicionar Solicitação
+                            </h5>
+                        </div>
+                    </div>
+                    <form id="myform" ng-submit="submitNovoChamado(inputChamado)" ng-init="inputChamado = {}">
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="form-group">
+                                    <label for="inputNovoChamadoTipo">Tipo de Solicitação</label>
+                                    <select class="form-control" id="inputNovoChamadoTipo" ng-model="inputChamado.tipo" required>
+                                        <option value=""></option>
+                                        <option ng-value="tipo.id" ng-repeat="tipo in dadosConfig.solicitacao.tipo">{{tipo.nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="form-group">
+                                    <label for="inputNovoChamadoNumero">Número da solicitação com a mesma ocorrencia</label>
+                                    <select class="form-control" id="inputNovoChamadoNumero" ng-model="inputChamado.numero" required>
+                                        <option value="" ></option> 
+                                        <option value="0" >Nenhuma</option> 
+                                        <option ng-repeat="solicitacao in dadosSolicitacoes.solicitacoes[0].infos.solicitacoes">{{solicitacao.numero}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="form-group">
+                                    <label for="inputNovoChamadoDetalhes">Detalhes da Solicitação</label>
+                                    <textarea class="form-control" id="inputNovoChamadoDetalhes" rows="3" maxlength="{{dadosConfig.solicitacao.limitDescricao}}" ng-model="inputChamado.detalhes" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="msgFile" class="form-control" disabled>
+                                        <span class="input-group-btn">
+                                            <button id="inputFile" class="btn btn-primary" type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-md-8 files" id="files1">
+                                        <span class="btn btn-default btn-file">
+                                            <input type="file" name="files1" multiple />
+                                        </span>
+                                        <br />
+                                        <div class="row fileList"></div>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <div class="row">
+                                            <div class="col col-md-12">
+                                                <div class="prazo">
+                                                    <p>Prazo estimado para atendimento</p>
+                                                    <h6><i class='fas fa-clock'></i> {{dadosTempoSolicitacao.dias}} dias úteis</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="btnsAdicionar">
+                                    <a href="#/suporte" role="button" class="btn btn-danger">Cancelar</a>
+                                    <input type="submit" id="uploadBtn" class="btn btn-success" value="Salvar" />
+                                </div>
+                            </div>
+                        </div>
+                    <form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

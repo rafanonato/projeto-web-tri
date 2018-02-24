@@ -1,9 +1,8 @@
 <div ng-controller="headerCtrl">
     <nav class="navbar navbar-light">
         <a href="#/" id="btnMenuBars" ><i class="fas fa-bars"></i></a>
-        <h1>
-            Dados cadastrais
-        </h1>
+        <h1 ng-show="activeTab('/') || activeTab('/estabelecimento') || activeTab('/enderecos') || activeTab('/produtos-e-taxas') || activeTab('/equipamentos')">Dados Cadastrais</h1>
+        <h1 ng-show="activeTab('/suporte') || activeTab('/suporte/adicionar')">Suporte</h1>
         <div class="dropdown show user-info">
             <a href="#/" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="user-col">
@@ -31,7 +30,7 @@
                     <form>
                         <label class="font-weight-bold" for="inputEstabelecimento">Estabelecimentos</label>
                         <div id="the-basics" class="input-group mb-3">
-                            <input id="inputEstabelecimento" class="typeahead" type="text" ng-model="input.estabelecimento" class="form-control" />
+                            <input id="inputEstabelecimento" class="typeahead inputs-ac" type="text" ng-model="input.estabelecimento" class="form-control" />
                             <i class="fas fa-search"></i>
                         </div>
                     </form>

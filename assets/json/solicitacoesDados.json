@@ -1,0 +1,35 @@
+{
+    "numeroEc":9999,
+    "solicitacoes":[
+        {
+            "titulo":"Lista de Solicitação",
+            "infos":{
+                "solicitacoes":[
+                    {
+                        "situacao":"Resolvida",
+                        "numero":"280735",
+                        "responsavel":"Maria das Graças",
+                        "assunto":"Dúvida no Extrato",
+                        "dataAbertura":"10/01/2017 - 12:30",
+                        "dataAtualizacao":"10/01/2017 - 12:30"
+                    },{
+                        "situacao":"Em análise",
+                        "numero":"423432",
+                        "responsavel":"João da Silva",
+                        "assunto":"Cancelamento de Venda",
+                        "dataAbertura":"27/07/2017 - 12:30",
+                        "dataAtualizacao":"27/07/2017 - 13:30"
+                    },{
+                        "situacao":"Suspenso",
+                        "numero":"7567565",
+                        "responsavel":"Jonas Andrade",
+                        "assunto":"Cancelamento de Despesa",
+                        "dataAbertura":"12/11/2017 - 18:30",
+                        "dataAtualizacao":"12/11/2017 - 19:30"
+                    }
+                ]
+            },
+            "ativo":true
+        }
+    ]
+}

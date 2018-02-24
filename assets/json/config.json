@@ -1,4 +1,19 @@
 {
-"retries": 5,
-"telefone": "(99) 9999.9999"
+    "retries": 5,
+    "telefone": "(99) 9999.9999",
+    "solicitacao":{
+        "tipo":[{
+            "id":0,
+            "nome":"Solicitação"
+        },{
+            "id":1,
+            "nome":"Dúvida"
+        },{
+            "id":2,
+            "nome":"Reclamação"
+        }],
+        "limitDescricao":10000,
+        "tiposArquivos":["application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/pdf","image/jpeg","image/png","image/bmp","text/plain"],
+        "tamanhoMaximo":10000
+    }
 }

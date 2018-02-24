@@ -199,7 +199,7 @@ a{
     width:100%;
 }
 
-#inputEstabelecimento{
+.inputs-ac{
     width:100%;
     border: 1px solid #ccc;
     padding-left: 20px;
@@ -227,6 +227,90 @@ a{
 
 #main-container .navbar #btnMenuBars{
     display:none;
+}
+
+#main-container #add-chamado{
+    position:relative;
+    width:100%;
+    margin-top:32px;
+}
+
+#main-container #add-chamado button{
+    height: 47px;
+}
+
+#main-container .col-situacao.green{color:green;}
+#main-container .col-situacao.yellow{color:yellow;}
+#main-container .col-situacao.red{color:red;}
+#main-container .col-numero{color:blue}
+
+#main-container .btn-file{
+    display:none;
+}
+
+#main-container .fileList {
+    padding:0;
+    margin:0;
+}
+
+#main-container .fileList div .insertedFile{
+    border: 1px solid #ccc;
+    background-color:#f0f0f0;
+    text-align:center;
+    height:80px;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+}
+
+#main-container .prazo{
+    border: 1px solid #ccc;
+    background-color:#f0f0f0;
+    text-align:center;
+    height:80px;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    margin-top: 24px;
+}
+
+#main-container .prazo p{
+    font-size:12px;
+    text-transform: uppercase;
+    margin:0;
+}
+
+#main-container .prazo i{
+    font-size: 24px;
+}
+
+#main-container .prazo h6{
+    font-size: 28px;
+    text-transform: uppercase;
+    margin:0;
+}
+
+#main-container .fileList div .insertedFile i{
+    font-size:30px;
+}
+
+#main-container .fileList div .removeFile{
+    position:absolute;
+    top: 0px;
+    right: 18px;
+    color:#8e8e8e;
+}
+
+#main-container .fileList div .insertedFileName{
+    text-align: center;
+    word-break: break-all;
+}
+
+#main-container .btnsAdicionar{
+    text-align:right;
+    margin-top:20px;
 }
 
 @media (max-width: 767.98px) {

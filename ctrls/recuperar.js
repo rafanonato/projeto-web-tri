@@ -23,12 +23,14 @@ app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location'
 
     //função executada no submit do form de login (executa o captcha)
     $scope.onSubmit = function(){
+        console.log('onSubmit');
         grecaptcha.execute();
         //$scope.checkInputs();
     }
 
     //função executada no submit do form de login (depois do captcha)
     $scope.checkInputs = function(){
+        console.log('checkInputs');
 
         //sempre reseta o captcha (pode dar erro se não for resetada)
         grecaptcha.reset();
@@ -58,21 +60,30 @@ app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location'
 
                 $scope.input = {user:''};
                 //exibe mensagem de sucesso ou erro
-                $scope.inputStatus = data.status;
+                $scope.inputStatus = 'OK';
+                console.log(data)
+                $('.box-login h6').text('Informação Importante');
+                $('.box-login p').text('Foi enviado um link para o email abaixo, com as instruções para recuperação da sua senha de acesso.');
+                $('.feedback').text(data.email);
                 
-                if(data.status === 'OK'){
-                    $('.box-login h6').text('Informação Importante');
-                    $('.box-login p').text('Foi enviado um link para o email abaixo, com as instruções para recuperação da sua senha de acesso.');
-                    $('.feedback').text(data.email);
-                //se o usuário não existe
-                } else if(data.status === "NOK") {
-                    $scope.input = {user:'',pass:''};
-                    $scope.inputStatus = data.status;
-                }
+                // if(data.status === 'OK'){
+                //     $('.box-login h6').text('Informação Importante');
+                //     $('.box-login p').text('Foi enviado um link para o email abaixo, com as instruções para recuperação da sua senha de acesso.');
+                //     $('.feedback').text(data.email);
+                // //se o usuário não existe
+                // } else if(data.status === "NOK") {
+                //     $scope.input = {user:'',pass:''};
+                //     $scope.inputStatus = data.status;
+                // }
 
             })
             .catch(function(err) { 
                 console.log('err: '+err);
+
+                if(err.status === 404) {
+                    $scope.inputStatus = 'NOK';
+                    $scope.input = {user:'',pass:''};
+                }
             });
 
         }
@@ -96,6 +107,7 @@ app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location'
     
     //depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
     function afterCaptcha(token) {
+        console.log('afterCaptcha');
         angular.element($('.form-control')).scope().checkInputs();
     }
 

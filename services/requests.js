@@ -144,8 +144,9 @@ app.service('requests', ['$http', '$q', function($http, $q) {
 
         .then(
             function (response) {
-                response.data.cnae = response.data.cnae + " - Comércio varejista de mercadorias em geral, com predominância de produtos";
+                
                 deferred.resolve(response.data);
+
             },
 
             function (response) {
@@ -185,6 +186,73 @@ app.service('requests', ['$http', '$q', function($http, $q) {
         let deferred = $q.defer();
 
         $http.get("./assets/json/equipamentosDados.json?user="+inputObj.userId+"&numeroEc="+inputObj.numeroEc)
+        
+        .then(
+            function (response) {
+
+                deferred.resolve(response.data);
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
+    //request para pegar dados de solicitacoes
+    this.getDadosSolicitacoes = function (inputObj) {
+        let deferred = $q.defer();
+
+        $http.get("./assets/json/solicitacoesDados.json?numeroEc="+inputObj.numeroEc)
+        
+        .then(
+            function (response) {
+
+                deferred.resolve(response.data);
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
+    //request para pegar dados de solicitacoes
+    this.getTempoSolicitacao = function (inputObj) {
+        let deferred = $q.defer();
+
+        $http.get("./assets/json/tempoSolicitacoes.json")
+        
+        .then(
+            function (response) {
+
+                deferred.resolve(response.data);
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
+    //request para novo chamado
+    this.novoChamado = function (inputObj) {
+        let deferred = $q.defer();
+
+        //$http.post("./assets/json/chamado.json", JSON.stringify(inputObj))
+        $http.post("http://localhost:7010/createCase", JSON.stringify(inputObj))
         
         .then(
             function (response) {

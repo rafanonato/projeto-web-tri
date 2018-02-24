@@ -18,11 +18,11 @@
                             <p class="bolder"><strong>Nome Fantasia</strong></p>
                             <p>{{dadosEstabelecimento.nomeFantasia}}</p>
                             <p class="bolder"><strong>MCC - Ramo de Atividade</strong></p>
-                            <p>{{dadosEstabelecimento.cdRamoAtividade}}</p>
+                            <p>{{dadosEstabelecimento.cdRamoAtividade}} - {{dadosEstabelecimento.descricaoRamoAtividade}}</p>
                             <p class="bolder"><strong>Categoria do EC</strong></p>
                             <p></p>
                             <p class="bolder"><strong>CNAE</strong></p>
-                            <p>{{dadosEstabelecimento.cnae}}</p>
+                            <p>{{dadosEstabelecimento.cnae}} - {{dadosEstabelecimento.descricaoCnae}}</p>
                             <p class="bolder"><strong>Nome de Contato</strong></p>
                             <p></p>
                             <p class="bolder"><strong>Telefone do Contato</strong></p>
@@ -87,14 +87,14 @@
                             <p>{{dadosEstabelecimento.dadosEcMatriz.razaoSocial}}</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col col-md-12" ng-if="showItemEstabelecimento('dadosEcProprietarios')">
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcProprietarios')">
+                        <div class="col col-md-12">
                             <h5 class="subtitle">
                                 Dados dos Proprietários
                             </h5>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" ng-if="showItemEstabelecimento('dadosEcProprietarios')">
                         <div class="col col-md-12">
                             <table class="table table-sm borderless">
                                 <thead>

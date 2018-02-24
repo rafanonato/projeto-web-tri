@@ -44,4 +44,14 @@ app.config(function($routeProvider) {
         controller : "mainCtrl",
         css: './assets/css/main.css'
     })
+    .when("/suporte", {
+        templateUrl : "./views/suporte.html",
+        controller : "mainCtrl",
+        css: './assets/css/main.css'
+    })
+    .when("/suporte/adicionar", {
+        templateUrl : "./views/adicionar-solicitacao.html",
+        controller : "mainCtrl",
+        css: './assets/css/main.css'
+    })
 });
