@@ -9,10 +9,11 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12" ng-show="inputStatus !== 'OK'">
-                        <p>{{modalNovoChamado}}</p>
+                    <div class="col-md-12" ng-show="modalNovoChamadoStatus !== 'OK'">
+                        <p>Houve um erro. Tente novamente mais tarde.</p>
                     </div>
-                    <div class="col-md-12" ng-show="inputStatus === 'OK'">
+                    <div class="col-md-12" ng-show="modalNovoChamadoStatus === 'OK'">
+                        OK
                         <p>{{modalNovoChamado}}</p>
                     </div>
                 </div>

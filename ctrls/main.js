@@ -119,6 +119,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
             $('#modal-domicilio').modal();
         } else if(type === "novoChamado"){
             $rootScope.modalNovoChamado = $scope.responseNovoChamado;
+            $rootScope.modalNovoChamadoStatus = $scope.chamadoStatus;
             $('#modal-novochamado').modal();
         }
         
@@ -223,12 +224,14 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
             type: "POST",
             success: function (data) {
                 $scope.responseNovoChamado = data;
+                $scope.chamadoStatus = 'OK';
                 $scope.openModal('novoChamado',0);
                 $scope.files1Uploader.clear();
                 $("#myform").trigger('reset'); 
             },
             error: function (data) {
                 $scope.responseNovoChamado = data.responseText;
+                $scope.chamadoStatus = 'NOK';
                 $scope.openModal('novoChamado',0)
             }
         });
