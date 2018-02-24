@@ -11,22 +11,21 @@
                 <div class="row">
                     <div class="col-md-12">
                             <div id="success">
-                        <p><small>Informe a sua nova senha. Deve ter o minimo de 6 caracteres, sendo ao menos uma letra maiúscula ou minúscula e um número. Guarde sua sua senha em local seguro e troque a periodicamente.</small></p>
+                        <p ng-show="inputStatus !== 'OK'"><small>Informe a sua nova senha. Deve ter o minimo de 6 caracteres, sendo ao menos uma letra maiúscula ou minúscula e um número. Guarde sua sua senha em local seguro e troque a periodicamente.</small></p>
                         <form id="html_element" ng-submit="checkInputs()">
-                            
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" ng-show="inputStatus !== 'OK'">
                                 <input id="inputCurrentPass" type="password" ng-model="input.currentPass" class="form-control" placeholder="Senha Atual" required />
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" ng-show="inputStatus !== 'OK'">
                                 <input id="inputPass" type="password" ng-model="input.pass" class="form-control" placeholder="Nova Senha" required />
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" ng-show="inputStatus !== 'OK'">
                                 <input id="inputConfirmation" type="password" ng-model="input.confirmation" class="form-control" placeholder="Confirmar Nova Senha" required />
                             </div>
                             <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'different'">As senhas não conferem, favor digitar novamente.</div>
-                            <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'NOK'">Senha atual incorreta.</div>
+                            <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'senhaErrada'">Senha atual incorreta.</div>
                             <div class="alert alert-danger" role="alert" ng-show="inputStatus === 'regPass'">Senha inválida.</div>
-                            <input class="btn btn-primary btn-block" type="submit" value="Enviar">  
+                            <input class="btn btn-primary btn-block" type="submit" value="Enviar" ng-show="inputStatus !== 'OK'">  
                             <div class="alert alert-success" role="alert" ng-show="inputStatus === 'OK'">Senha alterada com sucesso.</div>
                             <input class="btn btn-primary btn-block" type="button" value="OK" id="buttonOk" ng-show="inputStatus === 'OK'" />                            
                         </form>

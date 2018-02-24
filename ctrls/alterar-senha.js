@@ -28,7 +28,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                 //faz a verificação dos campos e dá feedback visual em caso de erro 
                 if($scope.input.pass === $scope.input.confirmation){
-                    let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'pass':''};
+                    let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.pass};
 
                     //envia a nova senha para o servidor
                     requests.redefine(inputObjR)
@@ -40,7 +40,10 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                     })
                     .catch(function(err) { 
-                        console.log('err: '+err);
+                        if(err.status === 404) {
+                            $scope.inputStatus = "NOK";
+                            console.log('err: '+err);
+                        }
                     });
                     
                 //se os campos estão diferentes
@@ -54,7 +57,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                 if(err.status === 401) {
                     $scope.input = {currentPass:'',user:'',pass:''};
-                    $scope.inputStatus = "NOK";
+                    $scope.inputStatus = "senhaErrada";
                 }
             });
 

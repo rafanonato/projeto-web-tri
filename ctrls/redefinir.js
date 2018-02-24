@@ -38,11 +38,15 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
 
                     $scope.input = {pass:'',confirmation:''};
                     //exibe mensagem de sucesso ou erro
-                    $scope.inputStatus = data.status;
+                    $scope.inputStatus = 'OK';
 
                 })
                 .catch(function(err) { 
                     console.log('err: '+err);
+                    if(err.status === 404) {
+                        $scope.input = {pass:'',confirmation:''};
+                        $scope.inputStatus = "NOK";
+                    }
                 });
 
             } else {
