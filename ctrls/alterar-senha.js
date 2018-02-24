@@ -13,7 +13,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
         if(regPass.test($scope.input.pass)){
             $scope.inputStatus = '';
 
-            let inputObj = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.pass};
+            let inputObj = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.currentPass};
 
             requests.checkUserPass(inputObj)
             .then(function(data) { 
@@ -36,7 +36,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                         $scope.input = {currentPass:'', pass:'',confirmation:''};
                         //exibe mensagem de sucesso ou erro
-                        $scope.inputStatus = data.status;
+                        $scope.inputStatus = "OK";
 
                     })
                     .catch(function(err) { 
@@ -54,7 +54,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
                 if(err.status === 401) {
                     $scope.input = {currentPass:'',user:'',pass:''};
-                    $scope.inputStatus = data.status;
+                    $scope.inputStatus = "NOK";
                 }
             });
 
@@ -65,7 +65,12 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
 
     }
 
-    $( document ).ready(function() { 
+    $( document ).ready(function() {
+        
+        $("#buttonOk").on("click", function(){
+            $window.sessionStorage.clear();
+            $window.location.reload();
+        }); 
     
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
@@ -76,7 +81,7 @@ app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$locati
             $scope.inputStatus = '';
             $route.reload();
         });  
-    
+
     });
 
 }]);
