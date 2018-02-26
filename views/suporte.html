@@ -15,7 +15,7 @@
                             <form>
                                 <label class="font-weight-bold" for="inputChamado">Pesquisar Chamados</label>
                                 <div id="the-basics" class="input-group mb-3">
-                                    <input id="inputChamado" class="typeahead inputs-ac" type="text" ng-model="input.chamado" class="form-control" />
+                                    <input id="inputChamado" class="typeaheadChamado inputs-ac" type="text" ng-model="input.chamado" class="form-control" />
                                     <i class="fas fa-search"></i>
                                 </div>
                             </form>
@@ -33,22 +33,22 @@
                             <table class="table table-sm table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">Situação</th>
                                         <th scope="col">Número</th>
-                                        <th scope="col">Responsável</th>
+                                        <th scope="col">Situação</th>
+                                        <!--<th scope="col">Responsável</th> kaique pediu para retirar no MVP-->
                                         <th scope="col">Assunto</th>
                                         <th scope="col">Data de Abertura</th>
                                         <th scope="col">Data de Atualização</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="solicitacao in dadosSolicitacoes.solicitacoes[0].infos.solicitacoes">
-                                        <td class="col-situacao" ng-class="{green:solicitacao.situacao === 'Resolvida',yellow:solicitacao.situacao === 'Em análise', red:solicitacao.situacao === 'Suspenso'}">{{solicitacao.situacao}}</td>
-                                        <td class="col-numero">{{solicitacao.numero}} </td>
-                                        <td>{{solicitacao.responsavel}}</td>
+                                    <tr ng-repeat="solicitacao in dadosSolicitacoes.objCase">
+                                        <td class="col-numero">{{solicitacao.id}} </td>
+                                        <td class="col-situacao" ng-class="{green:solicitacao.status === 'Resolvida',yellow:solicitacao.status === 'Em análise', red:solicitacao.status === 'Suspenso'}"><strong>{{solicitacao.status}}</strong></td>
+                                        <!--<td>{{solicitacao.responsavel}}</td> kaique pediu para retirar no MVP-->
                                         <td>{{solicitacao.assunto}}</td>
-                                        <td>{{solicitacao.dataAbertura}}</td>
-                                        <td>{{solicitacao.dataAtualizacao}}</td>
+                                        <td>{{solicitacao.abertura | date: 'dd-MM-yyyy' }} às {{solicitacao.abertura | date: 'HH:mm' }}</td>
+                                        <td>{{solicitacao.atualizacao | date: 'dd-MM-yyyy' }} às {{solicitacao.atualizacao | date: 'HH:mm' }}</td>
                                     </tr>
                                 </tbody>
                             </table>

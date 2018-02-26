@@ -264,7 +264,7 @@ a{
     flex-direction:column;
 }
 
-#main-container .prazo{
+.prazo{
     border: 1px solid #ccc;
     background-color:#f0f0f0;
     text-align:center;
@@ -273,20 +273,20 @@ a{
     justify-content:center;
     align-content:center;
     flex-direction:column;
-    margin-top: 24px;
+    margin: 24px 0;
 }
 
-#main-container .prazo p{
+.prazo p{
     font-size:12px;
     text-transform: uppercase;
     margin:0;
 }
 
-#main-container .prazo i{
+.prazo i{
     font-size: 24px;
 }
 
-#main-container .prazo h6{
+.prazo h6{
     font-size: 28px;
     text-transform: uppercase;
     margin:0;
@@ -311,6 +311,10 @@ a{
 #main-container .btnsAdicionar{
     text-align:right;
     margin-top:20px;
+}
+
+#modal-novochamado .alert-warning{
+    text-align: center;
 }
 
 @media (max-width: 767.98px) {

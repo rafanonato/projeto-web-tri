@@ -120,15 +120,15 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
         } else if(type === "novoChamado"){
             $rootScope.modalNovoChamado = $scope.responseNovoChamado;
             $rootScope.modalNovoChamadoStatus = $scope.chamadoStatus;
+            $rootScope.$apply();
             $('#modal-novochamado').modal();
         }
         
     }
 
-    requests.getTempoSolicitacao()
+    requests.getTempoSolicitacao($window.sessionStorage)
     .then(function(data) { 
         $scope.dadosTempoSolicitacao = data;
-
     })
     .catch(function(err) { 
         console.log('err: '+err);
@@ -189,15 +189,12 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
     
         this.clear = function () {
             let lengthFiles = filesToUpload.length;
-            console.log(filesToUpload)
             filesToUpload.length = 0;
-            for (var i = 0; i < lengthFiles; i++) {
-                console.log(i)
-                //console.log(filesToUpload[i].id)
-                //filesToUpload.splice(i, 1);
-                // if (filesToUpload[i].id.indexOf(sectionIdentifier) >= 0)
-                //     filesToUpload.splice(i, 1);
-            }
+            // for (var i = 0; i < lengthFiles; i++) {
+            //     filesToUpload.splice(i, 1);
+            //     if (filesToUpload[i].id.indexOf(sectionIdentifier) >= 0)
+            //         filesToUpload.splice(i, 1);
+            // }
             $(this).children(".fileList").empty();
         }
     

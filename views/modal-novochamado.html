@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Novo Chamado</h5>
+                <h5 class="modal-title">Solicitação</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,10 +11,22 @@
                 <div class="row">
                     <div class="col-md-12" ng-show="modalNovoChamadoStatus !== 'OK'">
                         <p>Houve um erro. Tente novamente mais tarde.</p>
+                        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">
+                            Fechar
+                        </button>
                     </div>
+                    
                     <div class="col-md-12" ng-show="modalNovoChamadoStatus === 'OK'">
-                        OK
-                        <p>{{modalNovoChamado}}</p>
+                        <div class="alert alert-warning" role="alert">
+                            {{modalNovoChamado.id}}
+                        </div>
+                        <div class="prazo">
+                            <p>Prazo estimado para atendimento</p>
+                            <h6><i class='fas fa-clock'></i> {{modalNovoChamado.prazo}} dias úteis</h6>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">
+                            Fechar
+                        </button>
                     </div>
                 </div>
             </div>

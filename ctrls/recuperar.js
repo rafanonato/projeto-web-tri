@@ -22,7 +22,7 @@ app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location'
     });
 
     //função executada no submit do form de login (executa o captcha)
-    $scope.onSubmit = function(){
+    $scope.onSubmitRec = function(){
         console.log('onSubmit');
         grecaptcha.execute();
         //$scope.checkInputs();

@@ -207,7 +207,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     this.getDadosSolicitacoes = function (inputObj) {
         let deferred = $q.defer();
 
-        $http.get("./assets/json/solicitacoesDados.json?numeroEc="+inputObj.numeroEc)
+        $http.get("http://localhost:7010/solicitacoesDados?numeroEc="+inputObj.numeroEc)
         
         .then(
             function (response) {
@@ -229,7 +229,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     this.getTempoSolicitacao = function (inputObj) {
         let deferred = $q.defer();
 
-        $http.get("./assets/json/tempoSolicitacoes.json")
+        $http.get("http://localhost:7010/filaAtendimento?numeroEc="+inputObj.numeroEc)
         
         .then(
             function (response) {

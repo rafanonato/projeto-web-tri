@@ -27,7 +27,7 @@
                                     <select class="form-control" id="inputNovoChamadoNumero" ng-model="inputChamado.numero" required>
                                         <option value="" ></option> 
                                         <option value="0" >Nenhuma</option> 
-                                        <option ng-repeat="solicitacao in dadosSolicitacoes.solicitacoes[0].infos.solicitacoes">{{solicitacao.numero}}</option>
+                                        <option ng-repeat="solicitacao in dadosSolicitacoes.objCase">{{solicitacao.id}}</option>
                                     </select>
                                 </div>
                             </div>
