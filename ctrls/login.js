@@ -105,17 +105,19 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
     
     });
 
+    //depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
+    function afterCaptcha(token) {
+            
+        angular.element($('.form-control')).scope().checkInputs();
+    }
+
+    function removeChars(string){
+        let string = string.replace(/[^0-9]/g,'');
+
+        return string;
+    }
+
 }]);
 
-//depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
-function afterCaptcha(token) {
-        
-    angular.element($('.form-control')).scope().checkInputs();
-}
 
-function removeChars(string){
-    string = string.replace(/[^0-9]/g,'');
-
-    return string;
-}
 

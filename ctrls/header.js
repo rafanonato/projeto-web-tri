@@ -18,7 +18,7 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
 
             matches = [];
 
-            substrRegex = new RegExp(q, 'i');
+            let substrRegex = new RegExp(q, 'i');
 
             $.each(strs, function(i, str) {
                 if (substrRegex.test(str)) {
