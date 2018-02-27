@@ -11,6 +11,25 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
         console.log('err: '+err);
     });
 
+    //função usada para verificar string digitada no typeahead e verificar se existe na lista
+    let substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+            let matches, substringRegex;
+
+            matches = [];
+
+            substrRegex = new RegExp(q, 'i');
+
+            $.each(strs, function(i, str) {
+                if (substrRegex.test(str)) {
+                    matches.push(str);
+                }
+            });
+
+            cb(matches);
+        };
+    };
+
     //pega as informações para criar a lista de ECs
     requests.getEstabelecimentos($window.sessionStorage)
     .then(function(data) { 
@@ -72,25 +91,6 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
     .catch(function(err) { 
         console.log('err: '+err);
     });
-
-    //função usada para verificar string digitada no typeahead e verificar se existe na lista
-    let substringMatcher = function(strs) {
-        return function findMatches(q, cb) {
-            let matches, substringRegex;
-
-            matches = [];
-
-            substrRegex = new RegExp(q, 'i');
-
-            $.each(strs, function(i, str) {
-                if (substrRegex.test(str)) {
-                    matches.push(str);
-                }
-            });
-
-            cb(matches);
-        };
-    };
 
     $scope.killSession = function(){
         $window.sessionStorage.clear();
