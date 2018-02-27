@@ -190,7 +190,6 @@ function mainCtrl($scope,$window,$location,$rootScope, requests) {
         });
     
         this.clear = function () {
-            let lengthFiles = filesToUpload.length;
             filesToUpload.length = 0;
             
             $(this).children(".fileList").empty();
