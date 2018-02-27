@@ -1,5 +1,6 @@
 
-app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope','$window', 'requests', function loginCtrl($scope, $window, $http, $q, $location,$rootScope,$window, requests) {
+app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests', 
+function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
     if($rootScope.reloadView === true){
         $window.location.reload();

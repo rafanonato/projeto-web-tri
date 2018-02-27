@@ -1,5 +1,5 @@
 
-app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope','$window', 'requests', function recuperarCtrl($scope, $window, $http, $q, $location,$rootScope,$window, requests) {
+app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests', function recuperarCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
     if($rootScope.reloadView === true){
         $window.location.reload();
