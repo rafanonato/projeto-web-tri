@@ -1,5 +1,6 @@
 
-app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$location', '$route', 'requests', function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, requests) {
+app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$location', '$route', 'requests', 
+function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, requests) {
 
     $scope.input = {currentPass:'',pass:'',confirmation:''};
     $scope.inputStatus = '';

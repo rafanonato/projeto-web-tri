@@ -1,11 +1,16 @@
 
-app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'requests', function loginCtrl($scope, $window, $http, $q, $location, requests) {
+app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope','$window', 'requests', function loginCtrl($scope, $window, $http, $q, $location,$rootScope,$window, requests) {
 
+    if($rootScope.reloadView === true){
+        $window.location.reload();
+        $rootScope.reloadView = false;
+        console.log('reloaded')
+    }
     //verifica se o usuário está autenticado e o envia para a página interna 
     if ($window.sessionStorage.getItem('userId')){
         $location.path('/');
     }
-
+    
     //carrega o js do captcha (precisa ser carregado em cada controller)
     $.getScript("https://www.google.com/recaptcha/api.js");
     
@@ -29,6 +34,8 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
 
     //função executada no submit do form de login (depois do captcha)
     $scope.checkInputs = function(){
+
+        $rootScope.reloadView = true;
 
         //sempre reseta o captcha (pode dar erro se não for resetada)
         grecaptcha.reset();
@@ -105,19 +112,16 @@ app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location', 'r
     
     });
 
-    //depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
-    function afterCaptcha(token) {
-            
-        angular.element($('.form-control')).scope().checkInputs();
-    }
-
     function removeChars(string){
-        let string = string.replace(/[^0-9]/g,'');
+        let stringResult = string.replace(/[^0-9]/g,'');
 
-        return string;
+        return stringResult;
     }
 
 }]);
 
-
-
+//depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
+function afterCaptcha(token) {
+            
+    angular.element($('.form-control')).scope().checkInputs();
+}

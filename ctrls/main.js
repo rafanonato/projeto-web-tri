@@ -1,4 +1,5 @@
-app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'requests', function mainCtrl($scope,$window,$location,$rootScope, requests) {
+app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'requests', 
+function mainCtrl($scope,$window,$location,$rootScope, requests) {
 
     //verifica se o usuário está autenticado e o envia para a tela de login
     if (!$window.sessionStorage.getItem('userId')){
@@ -31,7 +32,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
             let areFilled = false;
 
             if(pos){
-                for (var property in $scope.dadosEstabelecimento[node][pos]) {
+                for (let property in $scope.dadosEstabelecimento[node][pos]) {
                     if ($scope.dadosEstabelecimento[node][pos].hasOwnProperty(property)) {
                         if($scope.dadosEstabelecimento[node][pos][property]) areFilled = true;
                     }
@@ -39,7 +40,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
 
             } else {
 
-                for (var property in $scope.dadosEstabelecimento[node]) {
+                for (let property in $scope.dadosEstabelecimento[node]) {
                     if ($scope.dadosEstabelecimento[node].hasOwnProperty(property)) {
                         if($scope.dadosEstabelecimento[node][property]) areFilled = true;
                     }
@@ -153,11 +154,12 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
                     file: file
                 });
 
-                for(tipo of $scope.dadosConfig.solicitacao.tiposArquivos){
+                for(let tipo of $scope.dadosConfig.solicitacao.tiposArquivos){
                     if(file.type === tipo && file.size <= 10000000){
                         validFiles++;
                         var removeLink = "<a class=\"removeFile\" href=\"#\" data-fileid=\"" + fileId + "\"><i class='fas fa-times-circle'></i></a>";
-                        output.push("<div class='col-md-2'><div class='insertedFile'><i class='fas fa-copy'></i></div><div class='insertedFileName'>", escape(file.name), "</div>", removeLink, "</div> ");
+                        output.push("<div class='col-md-2'><div class='insertedFile'><i class='fas fa-copy'></i></div><div class='insertedFileName'>", 
+                        escape(file.name), "</div>", removeLink, "</div> ");
                     }
                 }                
                 
@@ -190,11 +192,7 @@ app.controller('mainCtrl',['$scope', '$window', '$location','$rootScope', 'reque
         this.clear = function () {
             let lengthFiles = filesToUpload.length;
             filesToUpload.length = 0;
-            // for (var i = 0; i < lengthFiles; i++) {
-            //     filesToUpload.splice(i, 1);
-            //     if (filesToUpload[i].id.indexOf(sectionIdentifier) >= 0)
-            //         filesToUpload.splice(i, 1);
-            // }
+            
             $(this).children(".fileList").empty();
         }
     
