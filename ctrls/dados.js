@@ -24,21 +24,12 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
 
             let areFilled = false;
 
-            if(pos){
-                for (let property in $scope.dadosEstabelecimento[node][pos]) {
-                    if ($scope.dadosEstabelecimento[node][pos].hasOwnProperty(property)) {
-                        if($scope.dadosEstabelecimento[node][pos][property]) areFilled = true;
-                    }
+            let dadosEstabelecimento = (pos) ? $scope.dadosEstabelecimento[node][pos] : $scope.dadosEstabelecimento[node];
+
+            for (let property in dadosEstabelecimento) {
+                if (dadosEstabelecimento.hasOwnProperty(property)) {
+                    if(dadosEstabelecimento[property]) areFilled = true;
                 }
-
-            } else {
-
-                for (let property in $scope.dadosEstabelecimento[node]) {
-                    if ($scope.dadosEstabelecimento[node].hasOwnProperty(property)) {
-                        if($scope.dadosEstabelecimento[node][property]) areFilled = true;
-                    }
-                }
-
             }
 
             return areFilled;
