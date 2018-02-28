@@ -75,7 +75,7 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
 
         $scope.getDadosDia = function(date){
 
-            for(dia in $scope.dadosCalendario.dias){
+            for(let dia in $scope.dadosCalendario.dias){
 
                 let d1 = date.split('/');
                 d1 = new Date(d1[2], d1[1]-1, d1[0]);
@@ -88,6 +88,8 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
                     return $scope.dadosCalendario.dias[dia];
                 }
             }
+
+            return false;
         }
     })
     .catch(function(err) { 

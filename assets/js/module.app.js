@@ -26,42 +26,42 @@ app.config(function($routeProvider) {
     })
     .when("/estabelecimento", {
         templateUrl : "./views/estabelecimento.html",
-        controller : "mainCtrl",
+        controller : "dadosCtrl",
         css: './assets/css/main.css'
     })
     .when("/enderecos", {
         templateUrl : "./views/enderecos.html",
-        controller : "mainCtrl",
+        controller : "dadosCtrl",
         css: './assets/css/main.css'
     })
     .when("/produtos-e-taxas", {
         templateUrl : "./views/produtos-e-taxas.html",
-        controller : "mainCtrl",
+        controller : "dadosCtrl",
         css: './assets/css/main.css'
     })
     .when("/equipamentos", {
         templateUrl : "./views/equipamentos.html",
-        controller : "mainCtrl",
+        controller : "dadosCtrl",
         css: './assets/css/main.css'
     })
     .when("/suporte", {
         templateUrl : "./views/suporte.html",
-        controller : "mainCtrl",
+        controller : "suporteCtrl",
         css: './assets/css/main.css'
     })
     .when("/suporte/adicionar", {
         templateUrl : "./views/adicionar-solicitacao.html",
-        controller : "mainCtrl",
+        controller : "suporteCtrl",
         css: './assets/css/main.css'
     })
     .when("/agenda", {
         templateUrl : "./views/agenda.html",
-        controller : "agendaCtrl",
+        controller : "financeiroCtrl",
         css: ['./assets/css/main.css','./assets/css/calendario.css']
     })
     .when("/movimentacoes-diarias/:data", {
         templateUrl : "./views/movimentacoes-diarias.html",
-        controller : "movimentacoesCtrl",
+        controller : "financeiroCtrl",
         css: ['./assets/css/main.css']
     })
 });
