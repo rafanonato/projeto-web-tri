@@ -20,9 +20,8 @@ function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
         $scope.dadosSolicitacoes = data;
 
         $scope.showItemSolicitacoes = function(node,pos){
-
-            let ativo = $scope.dadosSolicitacoes[node][pos].ativo;
-            return ativo;
+            
+            return $scope.dadosSolicitacoes[node][pos].ativo;
 
         }
 

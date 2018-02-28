@@ -81,7 +81,7 @@ function recuperarCtrl($scope, $window, $http, $q, $location,$rootScope, request
             typePass = (typePass === "text")? 'password':'text';
             $('#inputPass')[0].type = typePass;
         });
-        
+
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
             angular.element($('.form-control')).scope().inputStatus = '';
