@@ -32,7 +32,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
 
                     //envia a nova senha para o servidor
                     requests.redefine(inputObjR)
-                    .then(function(data) { 
+                    .then(function(data) {
 
                         $scope.input = {currentPass:'', pass:'',confirmation:''};
                         //exibe mensagem de sucesso ou erro
@@ -69,12 +69,12 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
     }
 
     $( document ).ready(function() {
-        
+
         $("#buttonOk").on("click", function(){
             $window.sessionStorage.clear();
             $window.location.reload();
-        }); 
-    
+        });
+
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
             angular.element($('.form-control')).scope().inputStatus = '';
@@ -83,7 +83,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
         $('#modal-alterar-senha').on('hide.bs.modal', function () {
             $scope.inputStatus = '';
             $route.reload();
-        });  
+        });
 
     });
 
