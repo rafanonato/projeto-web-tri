@@ -1,11 +1,6 @@
 
 app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests', 
 function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
-
-    if($rootScope.reloadView === true){
-        $window.location.reload();
-        $rootScope.reloadView = false;
-    }
     
     //carrega o js do captcha (precisa ser carregado em cada controller)
     $.getScript("https://www.google.com/recaptcha/api.js");

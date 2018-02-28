@@ -1,4 +1,11 @@
-app.controller('indexCtrl',['$scope', '$location','auth', function indexCtrl($scope,$location,auth) {
+app.controller('indexCtrl',['$rootScope','$window','$scope', '$location','auth', function indexCtrl($rootScope,$window,$scope,$location,auth) {
+
+    $rootScope.reloadView = false;
+
+    if($rootScope.reloadView === true){
+        $window.location.reload();
+        $rootScope.reloadView = false;
+    }
 
     //checa se o usuário está logado
     auth.isLogged();

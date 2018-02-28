@@ -2,12 +2,6 @@
 app.controller('recuperarCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests', 
 function recuperarCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
-    if($rootScope.reloadView === true){
-        $window.location.reload();
-        $rootScope.reloadView = false;
-        console.log('reloaded')
-    }
-
     //carrega o js do captcha (precisa ser carregado em cada controller)
     $.getScript("https://www.google.com/recaptcha/api.js");
     
