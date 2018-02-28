@@ -29,7 +29,7 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
             $scope.currentDate.month = currentDate.getMonth()+1;
             $scope.currentDate.year = currentDate.getFullYear();
         }
-        
+
     }
 
     $scope.listDays = {
@@ -49,10 +49,10 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
             }
 
             return days;
-            
+
         },
         middle: function(month,year){
-            
+
             let lastDayMonthBefore = new Date(year,month-1,0);
             let lastDay = new Date(year,month,0);
             let firstDaySecondLine = (6-lastDayMonthBefore.getDay())+1;
@@ -70,7 +70,7 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
 
     //pega os dados do estabelecimento
     requests.getDadosAgenda($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.dadosCalendario = data;
 
         $scope.getDadosDia = function(date){
@@ -92,7 +92,7 @@ app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calen
             return false;
         }
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
