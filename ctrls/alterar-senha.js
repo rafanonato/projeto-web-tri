@@ -45,7 +45,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
                             console.log('err: '+err);
                         }
                     });
-                    
+
                 //se os campos estão diferentes
                 } else {
                     $scope.input = {currentPass: '',pass:'',confirmation:''};
