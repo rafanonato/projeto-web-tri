@@ -28,7 +28,7 @@
                                 <tbody>
                                     <tr ng-repeat="taxa in dadosProdutosTaxas.produtosETaxas[0].infos.taxasContratadas">
                                         <td class="bg-white logo-bandeira">
-                                            <button id="btn-modal" type="button" class="btn btn-link" ng-click="openModal('domicilio',$index)">
+                                            <button id="btn-modal" type="button" class="btn btn-link" ng-click="openModal($index)">
                                                 <img src="./assets/imgs/{{taxa.bandeira}}.png" />
                                             </button>
                                         </td>

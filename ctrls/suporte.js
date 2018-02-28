@@ -36,14 +36,11 @@ function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
         console.log('err: '+err);
     });
 
-    $scope.openModal = function(type,pos){
-        if(type === "novoChamado"){
-            $rootScope.modalNovoChamado = $scope.responseNovoChamado;
-            $rootScope.modalNovoChamadoStatus = $scope.chamadoStatus;
-            $rootScope.$apply();
-            $('#modal-novochamado').modal();
-        }
-        
+    $scope.openModal = function(pos){
+        $rootScope.modalNovoChamado = $scope.responseNovoChamado;
+        $rootScope.modalNovoChamadoStatus = $scope.chamadoStatus;
+        $rootScope.$apply();
+        $('#modal-novochamado').modal();
     }
 
     requests.getTempoSolicitacao($window.sessionStorage)
@@ -138,14 +135,14 @@ function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
             success: function (data) {
                 $scope.responseNovoChamado = data;
                 $scope.chamadoStatus = 'OK';
-                $scope.openModal('novoChamado',0);
+                $scope.openModal(0);
                 $scope.files1Uploader.clear();
                 $("#myform").trigger('reset'); 
             },
             error: function (data) {
                 $scope.responseNovoChamado = data.responseText;
                 $scope.chamadoStatus = 'NOK';
-                $scope.openModal('novoChamado',0)
+                $scope.openModal(0)
             }
         });
 

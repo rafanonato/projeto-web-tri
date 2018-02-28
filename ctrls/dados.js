@@ -95,12 +95,9 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
         }
     }
 
-    $scope.openModal = function(type,pos){
-        if(type === "domicilio"){
-            $rootScope.modalDomicilio = $scope.dadosProdutosTaxas.produtosETaxas[0].infos.taxasContratadas[pos];
-            $('#modal-domicilio').modal();
-        }
-        
+    $scope.openModal = function(pos){
+        $rootScope.modalDomicilio = $scope.dadosProdutosTaxas.produtosETaxas[0].infos.taxasContratadas[pos];
+        $('#modal-domicilio').modal();
     }
 
 }]);
