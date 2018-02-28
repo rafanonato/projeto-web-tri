@@ -1,5 +1,5 @@
 
-app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$location', '$route', 'requests', 
+app.controller('alterarSenhaCtrl', ['$scope', '$window', '$http', '$q', '$location', '$route', 'requests',
 function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, requests) {
 
     $scope.input = {currentPass:'',pass:'',confirmation:''};
@@ -17,17 +17,16 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
             let inputObj = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.currentPass};
 
             requests.checkUserPass(inputObj)
-            .then(function(data) { 
+            .then(function(data) {
                 //se a senha atual estiver correta
                 // if(data.status === "OK") {
 
-                    
                 // } else if(data.status === "NOK") {
                 //     $scope.input = {currentPass:'',user:'',pass:''};
                 //     $scope.inputStatus = data.status;
                 // }
 
-                //faz a verificação dos campos e dá feedback visual em caso de erro 
+                //faz a verificação dos campos e dá feedback visual em caso de erro
                 if($scope.input.pass === $scope.input.confirmation){
                     let inputObjR = {'numeroEc':$window.sessionStorage.getItem('numeroEc'),'password':$scope.input.pass};
 
@@ -40,7 +39,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
                         $scope.inputStatus = "OK";
 
                     })
-                    .catch(function(err) { 
+                    .catch(function(err) {
                         if(err.status === 404) {
                             $scope.inputStatus = "NOK";
                             console.log('err: '+err);
@@ -53,7 +52,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
                     $scope.inputStatus = 'different';
                 }
             })
-            .catch(function(err) { 
+            .catch(function(err) {
                 console.log('err: '+err);
 
                 if(err.status === 401) {
@@ -81,7 +80,7 @@ function alterarSenhaCtrl($scope, $window, $http, $q, $location, $route, request
             angular.element($('.form-control')).scope().inputStatus = '';
         });
 
-        $('#modal-alterar-senha').on('hide.bs.modal', function () { 
+        $('#modal-alterar-senha').on('hide.bs.modal', function () {
             $scope.inputStatus = '';
             $route.reload();
         });  
