@@ -3,11 +3,11 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
 
     //pega as configurações parametrizadas
     requests.getConfig()
-    .then(function(data) { 
+    .then(function(data) {
         $scope.dadosConfig = data;
 
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
@@ -17,7 +17,7 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
 
     //pega os dados do estabelecimento
     requests.getDadosEstabelecimento($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.dadosEstabelecimento = data;
 
         $scope.showItemEstabelecimento = function(node,pos){
@@ -33,43 +33,41 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
             }
 
             return areFilled;
-    
+
         }
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
     //pega as informações de produtos e taxas
     requests.getDadosProdutosTaxas($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.dadosProdutosTaxas = data;
 
         $scope.showItemProdutosTaxas = function(node,pos){
 
-            let ativo = $scope.dadosProdutosTaxas[node][pos].ativo;
-            return ativo;
-    
+            return $scope.dadosProdutosTaxas[node][pos].ativo;
+
         }
 
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
     //pega as informações de equipamentos
     requests.getDadosEquipamentos($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.dadosEquipamentos = data;
 
         $scope.showItemEquipamentos = function(node,pos){
 
-            let ativo = $scope.dadosEquipamentos[node][pos].ativo;
-            return ativo;
-    
+            return $scope.dadosEquipamentos[node][pos].ativo;
+
         }
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
