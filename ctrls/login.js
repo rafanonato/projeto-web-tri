@@ -1,19 +1,19 @@
 
-app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests', 
+app.controller('loginCtrl', ['$scope', '$window', '$http', '$q', '$location','$rootScope', 'requests',
 function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
-    
+
     //carrega o js do captcha (precisa ser carregado em cada controller)
     $.getScript("https://www.google.com/recaptcha/api.js");
-    
+
     $scope.input = {user:'',pass:''}
     $scope.inputStatus = '';
 
     //pega as configurações da aplicação
     requests.getConfig()
-    .then(function(data) { 
+    .then(function(data) {
         $scope.config = JSON.stringify(data);
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
@@ -33,7 +33,7 @@ function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
         $scope.inputStatus = '';
 
-        //faz a verificação dos campos e dá feedback visual em caso de erro 
+        //faz a verificação dos campos e dá feedback visual em caso de erro
         if($scope.input.user && $scope.input.pass){
 
             let regCNPJ = new RegExp('\\d{2}.?\\d{3}.?\\d{3}\\/?\\d{4}-?\\d{2}', 'g');
@@ -52,7 +52,7 @@ function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
             //checa o usuário e senha no servidor
             requests.checkUserPass(inputObj)
-            .then(function(data) { 
+            .then(function(data) {
                 //se o usuário tem autorização
                 // if(data.status === "OK" || ) {
                 //     //salva a sessão e envia o usuário para a página interna
@@ -76,7 +76,7 @@ function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
                     $location.path('estabelecimento');
                 }
             })
-            .catch(function(err) { 
+            .catch(function(err) {
                 //se o usuário não tem autorização
                 if(err.status === 401 || err.status === 404) {
                     $scope.input = {user:'',pass:''};
@@ -89,30 +89,30 @@ function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
 
     $( document ).ready(function() {
         let typePass = 'password';
-    
+
         //ao clicar no ícone 'eye' o script alterna o type entre 'senha' e 'text'
         $("#showPass").on("click", function() {
             typePass = (typePass === "text")? 'password':'text';
             $('#inputPass')[0].type = typePass;
-        });    
-        
+        });
+
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
             angular.element($('.form-control')).scope().inputStatus = '';
         });
-    
+
     });
 
     function removeChars(string){
-        let stringResult = string.replace(/[^0-9]/g,'');
 
-        return stringResult;
+        return string.replace(/[^0-9]/g,'');
+
     }
 
 }]);
 
 //depois que o captcha confirma que o usuário não é robô, ele executa a função checkInputs()
 function afterCaptcha(token) {
-            
+
     angular.element($('.form-control')).scope().checkInputs();
 }

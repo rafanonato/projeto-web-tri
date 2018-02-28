@@ -1,15 +1,15 @@
 
 app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location', 'requests', function redefinirCtrl($scope, $window, $http, $q, $location, requests) {
-    
+
     $scope.input = {pass:'',confirmation:''};
     $scope.inputStatus = '';
 
     //pega as configurações da aplicação
     requests.getConfig()
-    .then(function(data) { 
+    .then(function(data) {
         $scope.config = JSON.stringify(data);
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
@@ -22,21 +22,21 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
         if(regPass.test($scope.input.pass)){
             $scope.inputStatus = '';
 
-             //faz a verificação dos campos e dá feedback visual em caso de erro 
+             //faz a verificação dos campos e dá feedback visual em caso de erro
             if($scope.input.pass === $scope.input.confirmation){
 
                 let inputObj = {'password':$scope.input.pass , 'numeroEc':'18881'};
 
                 //envia a nova senha para o servidor
                 requests.redefine(inputObj)
-                .then(function(data) { 
+                .then(function(data) {
 
                     $scope.input = {pass:'',confirmation:''};
                     //exibe mensagem de sucesso ou erro
                     $scope.inputStatus = 'OK';
 
                 })
-                .catch(function(err) { 
+                .catch(function(err) {
                     console.log('err: '+err);
                     if(err.status === 404) {
                         $scope.input = {pass:'',confirmation:''};
@@ -57,13 +57,13 @@ app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location'
 
     }
 
-    $( document ).ready(function() { 
-    
+    $( document ).ready(function() {
+
         //ao focar, limpar feedbacks visuais de erro
         $('.form-control').on("click",function(){
             angular.element($('.form-control')).scope().inputStatus = '';
         });
-    
+
     });
 
 }]);
