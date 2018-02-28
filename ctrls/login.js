@@ -5,11 +5,6 @@ function loginCtrl($scope, $window, $http, $q, $location,$rootScope, requests) {
     if($rootScope.reloadView === true){
         $window.location.reload();
         $rootScope.reloadView = false;
-        console.log('reloaded')
-    }
-    //verifica se o usuário está autenticado e o envia para a página interna 
-    if ($window.sessionStorage.getItem('userId')){
-        $location.path('/');
     }
     
     //carrega o js do captcha (precisa ser carregado em cada controller)

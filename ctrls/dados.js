@@ -1,10 +1,5 @@
-app.controller('dadosCtrl',['$scope', '$window', '$location','$rootScope', 'requests', 
+app.controller('dadosCtrl',['$scope', '$window', '$location','$rootScope', 'requests',
 function dadosCtrl($scope,$window,$location,$rootScope, requests) {
-
-    //verifica se o usuário está autenticado e o envia para a tela de login
-    if (!$window.sessionStorage.getItem('userId')){
-        $location.path('login');
-    }
 
     //pega as configurações parametrizadas
     requests.getConfig()

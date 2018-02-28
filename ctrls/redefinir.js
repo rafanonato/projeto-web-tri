@@ -1,10 +1,5 @@
 
 app.controller('redefinirCtrl', ['$scope', '$window', '$http', '$q', '$location', 'requests', function redefinirCtrl($scope, $window, $http, $q, $location, requests) {
-
-    //verifica se o usuário está autenticado e o envia para a página interna 
-    if ($window.sessionStorage.getItem('userId')){
-        $location.path('/');
-    }
     
     $scope.input = {pass:'',confirmation:''};
     $scope.inputStatus = '';

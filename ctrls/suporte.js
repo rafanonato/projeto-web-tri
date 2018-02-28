@@ -1,11 +1,6 @@
 app.controller('solicitacaoCtrl',['$scope', '$window', '$location','$rootScope', 'requests', 
 function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
 
-    //verifica se o usuário está autenticado e o envia para a tela de login
-    if (!$window.sessionStorage.getItem('userId')){
-        $location.path('login');
-    }
-
     //pega as configurações parametrizadas
     requests.getConfig()
     .then(function(data) { 

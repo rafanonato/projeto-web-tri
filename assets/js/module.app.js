@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "./views/estabelecimento.html",
-        controller : "mainCtrl",
+        controller : "dadosCtrl",
         css: './assets/css/main.css'
     })
     .when("/login", {
