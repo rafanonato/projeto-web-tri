@@ -36,14 +36,6 @@ function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
         console.log('err: '+err);
     });
 
-    $scope.paginacaoEquipamento = function(dir,index){
-        if(dir === "prev" && $scope.equipamentoAtual[index] > 0){
-            $scope.equipamentoAtual[index]--;
-        } else if(dir === "next" && $scope.equipamentoAtual[index] < $scope.dadosEquipamentos.equipamentos[0].infos.equipamentos.length -1){
-            $scope.equipamentoAtual[index]++;
-        }
-    }
-
     $scope.openModal = function(type,pos){
         if(type === "novoChamado"){
             $rootScope.modalNovoChamado = $scope.responseNovoChamado;
