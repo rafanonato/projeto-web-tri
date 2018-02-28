@@ -4,17 +4,17 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
 
     //pega as informações do usuário
     requests.getUserInfo($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.userInfo = data;
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
     //função usada para verificar string digitada no typeahead e verificar se existe na lista
     let substringMatcher = function(strs) {
         return function findMatches(q, cb) {
-            let matches, substringRegex;
+            let matches;
 
             matches = [];
 
@@ -32,7 +32,7 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
 
     //pega as informações para criar a lista de ECs
     requests.getEstabelecimentos($window.sessionStorage)
-    .then(function(data) { 
+    .then(function(data) {
         $scope.listaEstabelecimentos = [];
 
         //faz um looping na resposta para criar um array de estabelecimentos
@@ -48,9 +48,9 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
             } else{
                 $scope.listaEstabelecimentos.push(el.string);
             }
-            
+
         }
-        
+
         //seta as configurações do typeahead (autocomplete)
         $('#the-basics .typeahead').typeahead(
             {
@@ -77,18 +77,18 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
 
             //pega os dados do estabelecimento
             requests.getDadosEstabelecimento($window.sessionStorage)
-            .then(function(data) { 
+            .then(function(data) {
                 //recarrega a view
                 $scope.dadosEstabelecimento = data;
                 $route.reload();
             })
-            .catch(function(err) { 
+            .catch(function(err) {
                 console.log('err: '+err);
             });
-        
+
         });
     })
-    .catch(function(err) { 
+    .catch(function(err) {
         console.log('err: '+err);
     });
 
@@ -112,7 +112,7 @@ app.controller('headerCtrl',['requests', '$scope','$window','$route', '$location
         $(window).click(function() {
             $('#menu-container').addClass('hide-menu');
         });
-        
+
         $('#menu-container').click(function(event){
             event.stopPropagation();
         });
