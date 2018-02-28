@@ -270,4 +270,27 @@ app.service('requests', ['$http', '$q', function($http, $q) {
         return deferred.promise;
     }
 
+    //request para pegar dados do estabelecimento
+    this.getDadosAgenda = function (inputObj) {
+        let deferred = $q.defer();
+        $http.get("./assets/json/calendarioDados.json?codigoEc="+inputObj.codigoEc)
+        //$http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
+
+        .then(
+            function (response) {
+                
+                deferred.resolve(response.data);
+
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
 }]);

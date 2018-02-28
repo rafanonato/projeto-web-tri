@@ -1,0 +1,36 @@
+{
+    "numeroEc":9999,
+    "dias":[
+        {
+            "data":"25/02/2018",
+            "recebido":"5517,10",
+            "vendas":"517,20",
+            "notificacao":true,
+            "antecipacao":false
+        },{
+            "data":"26/02/2018",
+            "recebido":"518,10",
+            "vendas":"5518,20",
+            "notificacao":false,
+            "antecipacao":true
+        },{
+            "data":"27/02/2018",
+            "recebido":"519,10",
+            "vendas":"519,20",
+            "notificacao":true,
+            "antecipacao":true
+        },{
+            "data":"28/02/2018",
+            "recebido":"20,10",
+            "vendas":"20,20",
+            "notificacao":true,
+            "antecipacao":false
+        },{
+            "data":"01/03/2018",
+            "recebido":"5521,10",
+            "vendas":"5521,20",
+            "notificacao":false,
+            "antecipacao":true
+        }
+    ]
+}

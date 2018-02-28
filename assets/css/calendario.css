@@ -1,0 +1,135 @@
+body {
+  font-family: Tahoma;
+}
+
+#calendar {
+  width: 100%;    
+}
+
+#calendar-wrap header .select-month{
+  text-align: right;
+}
+
+#calendar a {
+  position:absolute;
+  text-decoration: none;
+  width:100%;
+  height:100%;
+}
+
+#calendar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#calendar li {
+  position:relative;
+  display: block;
+  float: left;
+  width:14.342%;
+  padding: 5px;
+  box-sizing:border-box;
+  border: 1px solid #ccc;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+#calendar ul.weekdays {
+  height: 40px;
+  background: #444b56;
+}
+
+#calendar ul.weekdays li {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 20px;
+  border: none !important;
+  padding: 10px 6px;
+  color: #fff;
+  font-size: 13px;
+}
+
+#calendar .days li {
+  height: 170px;
+  position:relative;
+}
+
+#calendar .days li.today .date, #calendar ul.weekdays li.today .date {
+  background-color:#444b56;
+  color:#fff;
+}
+
+#calendar .days li:hover {
+  background: #d3d3d3;
+}
+
+#calendar .date {
+  text-align: center;
+  margin-bottom: 5px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  float: right;
+}
+
+#calendar .event {
+  clear: both;
+  display: block;
+  font-size: 13px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+#calendar .alert-notificacao{
+  color:yellow;
+  position:absolute;
+  bottom: 38px;
+  right: 15px;
+}
+
+#calendar .alert-antecipacao{
+  color:green;
+  position:absolute;
+  bottom:14px;
+  right:14px;
+}
+
+#calendar .event-desc {
+  color: #666;
+  margin: 3px 0 7px 0;
+  text-decoration: none;  
+}
+
+#calendar .other-month {
+  opacity:.4;
+}
+
+/* ============================
+              Mobile Responsiveness
+ ============================*/
+
+
+@media(max-width: 768px) {
+
+  #calendar .weekdays, #calendar .other-month {
+      display: none;
+  }
+
+  #calendar li {
+      height: auto !important;
+      border: 1px solid #ededed;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: -1px;
+  }
+
+  #calendar .date {
+    float: left;
+  }
+}

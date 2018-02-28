@@ -54,4 +54,14 @@ app.config(function($routeProvider) {
         controller : "mainCtrl",
         css: './assets/css/main.css'
     })
+    .when("/agenda", {
+        templateUrl : "./views/agenda.html",
+        controller : "agendaCtrl",
+        css: ['./assets/css/main.css','./assets/css/calendario.css']
+    })
+    .when("/movimentacoes-diarias/:data", {
+        templateUrl : "./views/movimentacoes-diarias.html",
+        controller : "movimentacoesCtrl",
+        css: ['./assets/css/main.css']
+    })
 });
