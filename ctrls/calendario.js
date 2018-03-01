@@ -1,7 +1,7 @@
-app.controller('calendarioCtrl',['$scope', '$window', 'requests', function calendarioCtrl($scope,$window,requests) {
+app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function calendarioCtrl($scope, $window, requests) {
 
-    $scope.monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto",
-    "Setembro","Outubro","Novembro","Dezembro"];
+    $scope.monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto",
+    "Setembro", "Outubro", "Novembro", "Dezembro"];
 
     let currentDate = new Date();
 

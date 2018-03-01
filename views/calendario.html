@@ -17,95 +17,70 @@
             <li>Sexta</li>
             <li>Sábado</li>
         </ul>
-
-        <!-- Primeira Linha -->
-
+        
         <ul class="days">
             <li class="day" ng-repeat="dia in listDays.startOrEnd(currentDate.month,currentDate.year)" ng-class="{'other-month': dia > 10}">
                 <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}" ng-if="dia < 10"></a>
                 <div class="date">{{dia}}</div>
-                <div class="alert-notificacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).notificacao && dia < 10">
-                    <i class="fas fa-bell"></i>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome && dia < 10">
+                    <i class="fas fa-{{icone.icone}}"></i>
                 </div>
-                <div class="alert-antecipacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).antecipacao && dia < 10">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).recebido && dia < 10">
+                <div class="event" ng-repeat="evento in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).eventos" ng-if="evento.titulo && dia < 10">
                     <div class="event-desc">
-                        Recebido
+                        {{evento.titulo}}
                     </div>
                     <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).recebido}}
-                    </div>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).vendas && dia < 10">
-                    <div class="event-desc">
-                        Vendas
-                    </div>
-                    <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).vendas}}
+                       {{evento.descricao}}
                     </div>
                 </div>
             </li>
         </ul>
 
+
+        
         <ul class="days">
             <li class="day" ng-repeat="dia in listDays.middle(currentDate.month,'2018')">
                 <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}"></a>
                 <div class="date">{{dia}}</div>
-                <div class="alert-notificacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).notificacao">
-                    <i class="fas fa-bell"></i>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome">
+                    <i class="fas fa-{{icone.icone}}"></i>
                 </div>
-                <div class="alert-antecipacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).antecipacao">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).recebido">
+                <div class="event" ng-repeat="evento in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).eventos" ng-if="evento.titulo">
                     <div class="event-desc">
-                        Recebido
+                        {{evento.titulo}}
                     </div>
                     <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).recebido}}
-                    </div>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).vendas">
-                    <div class="event-desc">
-                        Vendas
-                    </div>
-                    <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).vendas}}
+                       {{evento.descricao}}
                     </div>
                 </div>
             </li>
         </ul>
+
 
         <ul class="days">
             <li class="day" ng-repeat="dia in listDays.startOrEnd(currentDate.month+1,currentDate.year)" ng-class="{'other-month': dia < 10}">
                 <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}" ng-if="dia > 10"></a>
                 <div class="date">{{dia}}</div>
-                <div class="alert-notificacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).notificacao && dia > 10">
-                    <i class="fas fa-bell"></i>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome && dia > 10">
+                    <i class="fas fa-{{icone.icone}}"></i>
                 </div>
-                <div class="alert-antecipacao" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).antecipacao && dia > 10">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).recebido && dia > 10">
+                <div class="event" ng-repeat="evento in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).eventos" ng-if="evento.titulo && dia > 10">
                     <div class="event-desc">
-                        Recebido
+                        {{evento.titulo}}
                     </div>
                     <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).recebido}}
-                    </div>
-                </div>
-                <div class="event" ng-if="getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).vendas && dia > 10">
-                    <div class="event-desc">
-                        Vendas
-                    </div>
-                    <div class="event-time">
-                        {{getDadosDia(dia+"/"+currentDate.month+"/"+currentDate.year).vendas}}
+                       {{evento.descricao}}
                     </div>
                 </div>
             </li>
         </ul>
 
-    </div><!-- /. calendar -->
-</div><!-- /. wrap -->
+    </div>
+    <footer>
+        <div class="push-right text-right">
+            <span ng-repeat="icone in dadosCalendario.footer">
+                <i class="fas fa-{{icone.icone}}"></i> {{icone.titulo}}
+            </span>
+        </div>
+    </footer>
+</div>

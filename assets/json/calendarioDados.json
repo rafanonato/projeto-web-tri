@@ -1,36 +1,230 @@
 {
-    "numeroEc":9999,
-    "dias":[
+    "numeroEc": 9999,
+    "dias": [
         {
-            "data":"25/02/2018",
-            "recebido":"5517,10",
-            "vendas":"517,20",
-            "notificacao":true,
-            "antecipacao":false
+            "data": "25/02/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
         },{
-            "data":"26/02/2018",
-            "recebido":"518,10",
-            "vendas":"5518,20",
-            "notificacao":false,
-            "antecipacao":true
+            "data": "26/02/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
         },{
-            "data":"27/02/2018",
-            "recebido":"519,10",
-            "vendas":"519,20",
-            "notificacao":true,
-            "antecipacao":true
+            "data": "27/02/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
         },{
-            "data":"28/02/2018",
-            "recebido":"20,10",
-            "vendas":"20,20",
-            "notificacao":true,
-            "antecipacao":false
+            "data": "28/02/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
         },{
-            "data":"01/03/2018",
-            "recebido":"5521,10",
-            "vendas":"5521,20",
-            "notificacao":false,
-            "antecipacao":true
+            "data": "01/03/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        },{
+            "data": "02/03/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        },{
+            "data": "03/03/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        },{
+            "data": "04/03/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        },{
+            "data": "07/03/2018",
+            "eventos": [
+                {
+                    "titulo": "recebido",
+                    "descricao": "5517,10"
+                }, {
+                    "titulo": "vendas",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[
+                {
+                    "nome": "notificacao",
+                    "titulo":"Notificações",
+                    "icone": "bell"
+                },{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        },{
+            "data": "09/03/2018",
+            "eventos": [
+                {
+                    "titulo": "receber",
+                    "descricao": "5517,10"
+                }
+            ],
+            "icones":[{
+                    "nome": "antecipacao",
+                    "titulo":"Antecipação Programada",
+                    "icone": "clock"
+                }
+            ]
+        }
+    ],
+    "footer":[
+        {
+            "nome": "notificacao",
+            "titulo":"Notificações",
+            "icone": "bell"
+        },
+        {
+            "nome": "antecipacao",
+            "titulo":"Antecipação Programada",
+            "icone": "clock"
         }
     ]
 }
