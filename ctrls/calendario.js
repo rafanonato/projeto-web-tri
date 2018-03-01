@@ -6,7 +6,7 @@ app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function cale
     let currentDate = new Date();
 
     $scope.currentDate = {
-        month:currentDate.getMonth()+1,
+        month:(currentDate.getMonth()+1),
         year:currentDate.getFullYear()
     };
 
@@ -33,21 +33,40 @@ app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function cale
     }
 
     $scope.listDays = {
-        startOrEnd: function(month,year){
+        start: function(month,year){
             let lastDay = new Date(year,month-1,0);
-
             let lastWeekday = 6-lastDay.getDay();
             let startDay = lastDay.getUTCDate() - lastDay.getDay();
             let days = [];
 
             for(let i = startDay; i <= lastDay.getUTCDate(); i++){
-                days.push(i)
+                let d = i+'/'+(month-1)+'/'+year;
+                days.push(d)
             }
-
+            
             for(let i = 1; i <= lastWeekday; i++){
-                days.push(i)
+                let d = i+'/'+month+'/'+year;
+                days.push(d)
             }
+            
+            return days;
 
+        },
+        end: function(month,year){
+            let lastDay = new Date(year,month,0);
+            let lastWeekday = 6-lastDay.getDay();
+            let startDay = lastDay.getUTCDate() - lastDay.getDay();
+            let days = [];
+            
+            for(let i = startDay; i <= lastDay.getUTCDate(); i++){
+                let d = i+'/'+month+'/'+year;
+                days.push(d)
+            }
+            for(let i = 1; i <= lastWeekday; i++){
+                let d = i+'/'+(month+1)+'/'+year;
+                days.push(d)
+            }
+            console.log(days)
             return days;
 
         },
@@ -60,15 +79,44 @@ app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function cale
             let days = [];
 
             for(let i = firstDaySecondLine; i <= lastDayBeforeLastLine; i++){
-                days.push(i)
+                let d = i+'/'+month+'/'+year;
+                days.push(d)
             }
-
+            
             return days;
 
         }
     }
-
-    //pega os dados do estabelecimento
+    
+    $scope.checkDay = {
+        weekend: function(date){
+        
+        let d1 = date.split('/');
+        d1 = new Date(d1[2], d1[1]-1, d1[0]);
+        
+        return d1.getDay() === 0 || d1.getDay() === 6;
+        
+        },
+        today: function(date){
+            
+            let d1 = date.split('/');
+            d1 = new Date(d1[2], d1[1]-1, d1[0]);
+            
+            let d2 = new Date();
+            d2.setHours(0,0,0,0);
+            
+            return d1.getTime() === d2.getTime();
+            
+        }
+    }
+    
+    $scope.printDate = function(date,pos){
+        let d = date.split('/');
+        
+        return parseInt(d[pos])
+    }
+    
+    //pega os dados do calendário
     requests.getDadosAgenda($window.sessionStorage)
     .then(function(data) {
         $scope.dadosCalendario = data;

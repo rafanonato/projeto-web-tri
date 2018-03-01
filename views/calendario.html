@@ -19,13 +19,13 @@
         </ul>
         
         <ul class="days">
-            <li class="day" ng-repeat="dia in listDays.startOrEnd(currentDate.month,currentDate.year)" ng-class="{'other-month': dia > 10}">
-                <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}" ng-if="dia < 10"></a>
-                <div class="date">{{dia}}</div>
-                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome && dia < 10">
+            <li class="day" ng-repeat="date in listDays.start(currentDate.month,currentDate.year)" ng-class="{'other-month': printDate(date,1) !== currentDate.month, weekend:checkDay.weekend(date),today:checkDay.today(date)}">
+                <a href="#/movimentacoes-diarias/{{date}}" ng-if="printDate(date,0) < 10"></a>
+                <div class="date">{{printDate(date,0)}}</div>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(date).icones" ng-if="icone.nome && printDate(date,0) < 10">
                     <i class="fas fa-{{icone.icone}}"></i>
                 </div>
-                <div class="event" ng-repeat="evento in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).eventos" ng-if="evento.titulo && dia < 10">
+                <div class="event" ng-repeat="evento in getDadosDia(date).eventos" ng-if="evento.titulo && printDate(date,0) < 10">
                     <div class="event-desc">
                         {{evento.titulo}}
                     </div>
@@ -35,11 +35,46 @@
                 </div>
             </li>
         </ul>
-
-
         
         <ul class="days">
-            <li class="day" ng-repeat="dia in listDays.middle(currentDate.month,'2018')">
+            <li class="day" ng-repeat="date in listDays.middle(currentDate.month,currentDate.year)" ng-class="{weekend:checkDay.weekend(date),today:checkDay.today(date)}">
+                <a href="#/movimentacoes-diarias/{{date}}"></a>
+                <div class="date">{{printDate(date,0)}}</div>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(date).icones" ng-if="icone.nome">
+                    <i class="fas fa-{{icone.icone}}"></i>
+                </div>
+                <div class="event" ng-repeat="evento in getDadosDia(date).eventos" ng-if="evento.titulo">
+                    <div class="event-desc">
+                        {{evento.titulo}}
+                    </div>
+                    <div class="event-time">
+                       {{evento.descricao}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <ul class="days">
+            <li class="day" ng-repeat="date in listDays.end(currentDate.month,currentDate.year)" ng-class="{'other-month': printDate(date,1) !== currentDate.month, weekend:checkDay.weekend(date),today:checkDay.today(date)}">
+                <a href="#/movimentacoes-diarias/{{date}}" ng-if="printDate(date,0) > 10"></a>
+                <div class="date">{{printDate(date,0)}}</div>
+                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(date).icones" ng-if="icone.nome && printDate(date,0) > 10">
+                    <i class="fas fa-{{icone.icone}}"></i>
+                </div>
+                <div class="event" ng-repeat="evento in getDadosDia(date).eventos" ng-if="evento.titulo && printDate(date,0) > 10">
+                    <div class="event-desc">
+                        {{evento.titulo}}
+                    </div>
+                    <div class="event-time">
+                       {{evento.descricao}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+<!--
+        <ul class="days">
+            <li class="day" ng-repeat="dia in listDays.middle(currentDate.month,'2018')" ng-class="{weekend:checkDay.weekend(dia+'/'+currentDate.month+'/'+currentDate.year),today:checkDay.today(dia+'/'+currentDate.month+'/'+currentDate.year)}">
                 <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}"></a>
                 <div class="date">{{dia}}</div>
                 <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome">
@@ -55,25 +90,7 @@
                 </div>
             </li>
         </ul>
-
-
-        <ul class="days">
-            <li class="day" ng-repeat="dia in listDays.startOrEnd(currentDate.month+1,currentDate.year)" ng-class="{'other-month': dia < 10}">
-                <a href="#/movimentacoes-diarias/{{dia+'-'+currentDate.month+'-'+currentDate.year}}" ng-if="dia > 10"></a>
-                <div class="date">{{dia}}</div>
-                <div class="alert-{{icone.nome}}" ng-repeat="icone in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).icones" ng-if="icone.nome && dia > 10">
-                    <i class="fas fa-{{icone.icone}}"></i>
-                </div>
-                <div class="event" ng-repeat="evento in getDadosDia(dia+'/'+currentDate.month+'/'+currentDate.year).eventos" ng-if="evento.titulo && dia > 10">
-                    <div class="event-desc">
-                        {{evento.titulo}}
-                    </div>
-                    <div class="event-time">
-                       {{evento.descricao}}
-                    </div>
-                </div>
-            </li>
-        </ul>
+-->
 
     </div>
     <footer>
