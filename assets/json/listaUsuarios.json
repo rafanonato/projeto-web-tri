@@ -1,6 +1,13 @@
 {
-    "status":"Ativo",
+  "usuarios": [{
+    "status":"ATIVO",
     "idUsuario":3,
     "nome":"João",
     "area":"TI"
+  }, {
+    "status":"DESATIVADO",
+    "idUsuario":4,
+    "nome":"Pedro",
+    "area":"TI"
+  }] 
 }

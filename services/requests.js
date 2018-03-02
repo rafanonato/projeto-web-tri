@@ -296,7 +296,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     //request para pegar lista de usuários
     this.getListaUsuarios = function (inputObj) {
         let deferred = $q.defer();
-        $http.get("./assets/json/listaUsuarios.json"+inputObj.codigoEc, JSON.stringify(inputObj))
+        $http.get("./assets/json/listaUsuarios.json", JSON.stringify(inputObj))
         //$http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
 
         .then(

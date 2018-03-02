@@ -39,15 +39,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="usuarios in dadosUsuarios.objCase">
-                                            <td class="col-situacao" ng-class="{green:usuarios.status === 'Ativo', red:usuarios.status === 'Inativo'}"><strong>{{solicitacao.status}}</strong></td>
-                                            <td class="col-numero">{{usuarios.nome}} </td>
+                                        <tr ng-repeat="usuarios in dadosUsuarios">
+                                            <td class="col-situacao" ng-class="{green:usuarios.status === 'ATIVO', red:usuarios.status === 'DESATIVADO'}"><strong>{{usuarios.status}}</strong></td>
+                                            <td class="col-nome">{{usuarios.nome}}</td>
                                             <td>{{usuarios.area}}</td>
-                                            <td class="btn btn-primary btn-block" ng-show="usuarios.status === 'Ativo'"><a href="">Al</a></td>
-                                            <td ng-show="usuarios.status === 'Ativo'"><a href="">Ed</a></td>
-                                            <td ng-show="usuarios.status === 'Ativo'"><a href="">In</a></td>
-                                            <td ng-show="usuarios.status === 'Inativo'"><a href="">At</a></td>
-                                            <td><a href="">Detalhes</a></td>
+                                            <td class="col-acao">
+                                                <a class="btn-off" ng-show="usuarios.status === 'ATIVO'" href=""><i class="fas fa-window-close"></i></a>
+                                                <a class="btn-edit" ng-show="usuarios.status === 'ATIVO'" href=""><i class="fas fa-pen-square"></i></a>
+                                                <a class="btn-unlock" ng-show="usuarios.status === 'ATIVO'" href=""><i class="fas fa-unlock"></i></a>
+                                                <a class="btn-on" ng-show="usuarios.status === 'DESATIVADO'" href=""><i class="fas fa-check-square"></i></a>
+                                                <span class="span-detail"><a class="btn-details" href=""><b>Detalhes</b><i class="fas fa-arrow-circle-right"></i></a></span>
+                                            </td>
+                                            <input type="hidden" id="idUsuario{{usuarios.idUsuario}}" value="{{usuarios.idUsuario}}">
+                                            
                                         </tr>
                                     </tbody>
                                 </table>

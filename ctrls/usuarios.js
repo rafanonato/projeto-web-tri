@@ -14,11 +14,11 @@ function usuariosCtrl($scope,$window,$location,$rootScope, requests) {
     //pega as informações de usuários
     requests.getListaUsuarios($window.sessionStorage)
     .then(function(data) {
-        $scope.dadosUsuarios = data;
+        $scope.dadosUsuarios = data.usuarios;
 
         $scope.showItemUsuarios = function(node,pos){
 
-            return $scope.dadosUsuarios[node][pos].ativo;
+            return $scope.dadosUsuarios[node][pos];
 
         }
 
