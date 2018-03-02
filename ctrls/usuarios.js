@@ -1,5 +1,5 @@
-app.controller('suporteCtrl',['$scope', '$window', '$location','$rootScope', 'requests',
-function suporteCtrl($scope,$window,$location,$rootScope, requests) {
+app.controller('usuariosCtrl',['$scope', '$window', '$location','$rootScope', 'requests',
+function usuariosCtrl($scope,$window,$location,$rootScope, requests) {
 
     //pega as configurações parametrizadas
     requests.getConfig()
@@ -11,17 +11,14 @@ function suporteCtrl($scope,$window,$location,$rootScope, requests) {
         console.log('err: '+err);
     });
 
-    $scope.msgFile = "";
-    var filesToUpload = [];
-
-    //pega as informações de solicitações
-    requests.getDadosSolicitacoes($window.sessionStorage)
+    //pega as informações de usuários
+    requests.getListaUsuarios($window.sessionStorage)
     .then(function(data) {
-        $scope.dadosSolicitacoes = data;
+        $scope.dadosUsuarios = data;
 
-        $scope.showItemSolicitacoes = function(node,pos){
+        $scope.showItemUsuarios = function(node,pos){
 
-            return $scope.dadosSolicitacoes[node][pos].ativo;
+            return $scope.dadosUsuarios[node][pos].ativo;
 
         }
 
@@ -37,7 +34,7 @@ function suporteCtrl($scope,$window,$location,$rootScope, requests) {
         $('#modal-novochamado').modal();
     }
 
-    requests.getTempoSolicitacao($window.sessionStorage)
+ /*   requests.getTempoSolicitacao($window.sessionStorage)
     .then(function(data) {
         $scope.dadosTempoSolicitacao = data;
     })
@@ -151,7 +148,7 @@ function suporteCtrl($scope,$window,$location,$rootScope, requests) {
             $("input[type='file']").trigger('click');
         })
     })()
-
+*/
 }]);
 
 

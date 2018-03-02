@@ -293,4 +293,27 @@ app.service('requests', ['$http', '$q', function($http, $q) {
         return deferred.promise;
     }
 
+    //request para pegar lista de usuários
+    this.getListaUsuarios = function (inputObj) {
+        let deferred = $q.defer();
+        $http.get("./assets/json/listaUsuarios.json"+inputObj.codigoEc, JSON.stringify(inputObj))
+        //$http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
+
+        .then(
+            function (response) {
+                
+                deferred.resolve(response.data);
+
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
 }]);
