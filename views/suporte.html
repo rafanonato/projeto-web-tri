@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col col-md-12">
                             <h5 class="subtitle">
-                                Lista de Solicitação
+                                <strong>Lista de Solicitação</strong>
                             </h5>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="solicitacao in dadosSolicitacoes.objCase">
-                                        <td class="col-numero">{{solicitacao.id}} </td>
+                                        <td class="col-numero">{{solicitacao.id}}</td>
                                         <td class="col-situacao" ng-class="{green:solicitacao.status === 'Resolvida',yellow:solicitacao.status === 'Em análise', red:solicitacao.status === 'Suspenso'}"><strong>{{solicitacao.status}}</strong></td>
                                         <!--<td>{{solicitacao.responsavel}}</td> kaique pediu para retirar no MVP-->
                                         <td>{{solicitacao.assunto}}</td>

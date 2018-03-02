@@ -15,6 +15,8 @@ function dadosCtrl($scope,$window,$location,$rootScope, requests) {
     $scope.equipamentoAtual = [];
     $rootScope.modalDomicilio = {};
 
+    console.log($window.sessionStorage);
+
     //pega os dados do estabelecimento
     requests.getDadosEstabelecimento($window.sessionStorage)
     .then(function(data) {

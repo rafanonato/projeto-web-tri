@@ -1,0 +1,109 @@
+<div class="row main-content">
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="row">
+                    <div class="col col-md-12">
+                        <h5 class="subtitle">
+                            <strong>Movimentações Diárias</strong>
+                        </h5>
+                    </div>
+                </div>
+                <div class="row mov-header">
+                    <div class="col col-md-6">
+                        <a href="#/movimentacoes-diarias/?data={{navDate('prev')}}" class="btn btn-secondary"><</a> <a href="#/" class="btn btn-outline-secondary disabled" >{{selectedDate}}</a> <a href="#/movimentacoes-diarias/?data={{navDate('next')}}" class="btn btn-secondary">></a>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#/extrato-de-pagamentos" class="btn btn-primary btn-block">Detalhes de Pagamentos</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#/extrato-de-vendas" class="btn btn-primary btn-block" ng-if="dadosMovDia.vendas">Detalhes de Vendas</a>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-6">
+                        <div class="alert alert-warning" role="alert" ng-if="dadosMovDia.recebimentos.todos.length > 0">
+                            <i class="fas fa-bell"></i> Ocorreram lançamentos na sua conta
+                        </div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="alert alert-success" role="alert" ng-if="dadosMovDia.recebimentos.antecipacao > 0">
+                            <i class="fas fa-clock"></i> Antecipação Automática Programada
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-6" ng-if="dadosMovDia.recebimentos">
+                        <h6 class="subtitle">
+                            Meus Recebimentos
+                        </h6>
+                        <p><strong>Recebimento de Vendas</strong></p>
+                        <table class="table table-sm borderless tabela-financeira">
+                            <tbody>
+                                <tr ng-repeat="recebimento in dadosMovDia.recebimentos.todos">
+                                    <td>{{recebimento.nome}}</td>
+                                    <td class="text-right"><u>R$ {{recebimento.valor}}</u></td>
+                                </tr>
+                                <tr class="total">
+                                    <td><strong>Subtotal</strong></td>
+                                    <td class="text-right"><strong><u>R$ 4000,00</u></strong></td>
+                                </tr>
+                                <tr class="antecipacao">
+                                    <td><strong>Antecipação Realizada</strong></td>
+                                    <td class="text-right"><strong><u>R$ {{dadosMovDia.recebimentos.antecipacao}}</u></td>
+                                </tr>
+                                <tr class="debitos" ng-repeat="debito in dadosMovDia.recebimentos.debitos">
+                                    <td>{{debito.nome}}</td>
+                                    <td class="text-right"><u>R$ {{debito .valor}}</u></td>
+                                </tr>
+                                <tr class="total">
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-right"><strong><u>R$ 3000,00</u></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col col-md-6"  ng-if="dadosMovDia.vendas">
+                        <h6 class="subtitle">
+                            Minhas Vendas
+                        </h6>
+                        <table class="table table-sm borderless tabela-financeira">
+                            <tbody>
+                                <tr ng-repeat="venda in dadosMovDia.vendas.todos">
+                                    <td>{{venda.nome}}</td>
+                                    <td class="text-right"><u>R$ {{venda.valor}}</u></td>
+                                </tr>
+                                <tr class="total">
+                                    <td><strong>Subtotal</strong></td>
+                                    <td class="text-right"><strong><u>+ R$ 4000,00</u></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="background-color:#ccc;" class="col col-md-6" ng-if="!dadosMovDia.vendas">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-12 text-right">
+                        <p><small>*Os valores apresentados se referem ao último dia útil</small></p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#/agenda" class="btn btn-primary"><i class="fas fa-download"></i> XLS</a>
+                        <a href="#/agenda" class="btn btn-primary"><i class="fas fa-download"></i> PDF</a>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="#/agenda" class="btn btn-warning pull-right">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

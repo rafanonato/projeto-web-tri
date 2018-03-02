@@ -273,7 +273,7 @@ app.service('requests', ['$http', '$q', function($http, $q) {
     //request para pegar dados do estabelecimento
     this.getDadosAgenda = function (inputObj) {
         let deferred = $q.defer();
-        $http.get("./assets/json/calendarioDados.json?codigoEc="+inputObj.codigoEc)
+        $http.get("./assets/json/calendarioDados.json?codigoEc="+inputObj.numeroEc)
         //$http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
 
         .then(
@@ -292,5 +292,28 @@ app.service('requests', ['$http', '$q', function($http, $q) {
 
         return deferred.promise;
     }
+
+    this.getDadosMovDia = function (inputObj,data) {
+        let deferred = $q.defer();
+        $http.get("./assets/json/movDiaDados.json?codigoEc="+inputObj.numeroEc+"&data="+data)
+        //$http.get("http://localhost:8084/estabelecimento?codigoEc="+inputObj.numeroEc)
+
+        .then(
+            function (response) {
+                
+                deferred.resolve(response.data);
+
+            },
+
+            function (response) {
+
+                deferred.reject( response);
+
+            }
+        );
+
+        return deferred.promise;
+    }
+
 
 }]);

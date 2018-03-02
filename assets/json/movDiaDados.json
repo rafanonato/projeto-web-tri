@@ -1,0 +1,47 @@
+{
+    "data": "10/02/2018",
+    "recebimentos":{
+        "antecipacao": 2000,
+        "todos":[
+            {
+                "nome": "Débito",
+                "valor":1000.00
+            },{
+                "nome": "Crédito a Vista",
+                "valor":1000.00
+            },{
+                "nome": "Crédito Parcelado",
+                "valor":1000.00
+            },{
+                "nome": "Voucher",
+                "valor":1000.00
+            }
+        ],
+        "debitos":[
+            {
+                "nome":"Aluguel de Equipamento",
+                "valor":-1000.00
+            },{
+                "nome":"Venda Contestada",
+                "valor":-1000.00
+            }
+        ]
+    },
+    "vendas":{
+        "todos":[
+            {
+                "nome": "Débito",
+                "valor":1000.00
+            },{
+                "nome": "Crédito a Vista",
+                "valor":1000.00
+            },{
+                "nome": "Crédito Parcelado",
+                "valor":1000.00
+            },{
+                "nome": "Voucher",
+                "valor":1000.00
+            }
+        ]
+    }
+}

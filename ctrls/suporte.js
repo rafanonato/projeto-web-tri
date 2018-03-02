@@ -1,5 +1,5 @@
-app.controller('solicitacaoCtrl',['$scope', '$window', '$location','$rootScope', 'requests',
-function solicitacaoCtrl($scope,$window,$location,$rootScope, requests) {
+app.controller('suporteCtrl',['$scope', '$window', '$location','$rootScope', 'requests',
+function suporteCtrl($scope,$window,$location,$rootScope, requests) {
 
     //pega as configurações parametrizadas
     requests.getConfig()
