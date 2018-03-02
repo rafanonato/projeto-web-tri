@@ -59,7 +59,7 @@ app.config(function($routeProvider) {
         controller : "financeiroCtrl",
         css: ['./assets/css/main.css','./assets/css/calendario.css']
     })
-    .when("/movimentacoes-diarias/", {
+    .when("/movimentacoes-diarias", {
         templateUrl : "./views/movimentacoes-diarias.html",
         controller : "financeiroCtrl",
         css: ['./assets/css/main.css']

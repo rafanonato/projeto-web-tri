@@ -66,7 +66,7 @@ app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function cale
                 let d = i+'/'+(month+1)+'/'+year;
                 days.push(d)
             }
-            console.log(days)
+
             return days;
 
         },
@@ -98,7 +98,7 @@ app.controller('calendarioCtrl', ['$scope', '$window', 'requests', function cale
 
         },
         today: function(date){
-    
+
             let d1 = date.split('/');
             d1 = new Date(d1[2], d1[1]-1, d1[0]);
 
