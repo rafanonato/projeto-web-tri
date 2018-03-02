@@ -1,0 +1,60 @@
+<div class="row main-content">
+        <div class="col col-md-12">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <h5 class="subtitle">
+                                   Usuários
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-9">
+                                <form>
+                                    <div id="the-basics" class="input-group mb-3">
+                                        <input id="inputUsuario" class="typeaheadUsuario inputs-ac" type="text" ng-model="input.usuario" class="form-control" />
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col col-md-3">
+                                <form id="add-usuario">
+                                    <div class="input-group mb-3">
+                                        <a class="btn btn-primary btn-block" href="#/suporte/adicionar" role="button">Adicionar Usuário</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Nome do Usuário</th>
+                                            <th scope="col">Área</th>
+                                            <th scope="col">Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="usuarios in dadosUsuarios.objCase">
+                                            <td class="col-situacao" ng-class="{green:usuarios.status === 'Ativo', red:usuarios.status === 'Inativo'}"><strong>{{solicitacao.status}}</strong></td>
+                                            <td class="col-numero">{{usuarios.nome}} </td>
+                                            <td>{{usuarios.area}}</td>
+                                            <td class="btn btn-primary btn-block" ng-show="usuarios.status === 'Ativo'"><a href="">Al</a></td>
+                                            <td ng-show="usuarios.status === 'Ativo'"><a href="">Ed</a></td>
+                                            <td ng-show="usuarios.status === 'Ativo'"><a href="">In</a></td>
+                                            <td ng-show="usuarios.status === 'Inativo'"><a href="">At</a></td>
+                                            <td><a href="">Detalhes</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

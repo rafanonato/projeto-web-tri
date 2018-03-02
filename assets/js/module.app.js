@@ -64,4 +64,9 @@ app.config(function($routeProvider) {
         controller : "financeiroCtrl",
         css: ['./assets/css/main.css']
     })
+    .when("/usuarios", {
+        templateUrl : "./views/listar-usuarios.html",
+        controller : "usuariosCtrl",
+        css: ['./assets/css/main.css']
+    })
 });
