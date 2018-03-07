@@ -1,0 +1,17 @@
+{
+    "test":{
+      "url" : "localhost"
+    },
+  
+    "production": [
+      {"url": "http://dev.com"},
+      {"url": "http://dev.com"},
+      {"url": "http://dev.com"}
+    ],
+    
+    "development": [
+      {"url": "http://dev.com"},
+      {"url": "http://dev.com"},
+      {"url": "http://dev.com"}
+    ]
+  }

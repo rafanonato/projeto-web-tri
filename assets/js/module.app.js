@@ -1,8 +1,17 @@
+import { url } from "inspector";
+
 //declarando module
-var app = angular.module('tripagApp', ["ngRoute"]);
+var app = angular.module('tripagApp', ["ngRoute"], ['config']);
+
+app.constant('local', 'localhost:8000')
+app.constant('production', 'localhost:8082')
+
 
 //setando as configurações de routes
-app.config(function($routeProvider) {
+app.config(function($routeProvider, someServiceProvider) {
+
+    someServiceProvider.setUrl(url);
+
     $routeProvider
     .when("/", {
         templateUrl : "./views/estabelecimento.html",
