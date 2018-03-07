@@ -1,17 +1,12 @@
 {
-    "test":{
-      "url" : "localhost"
-    },
-  
-    "production": [
-      {"url": "http://dev.com"},
-      {"url": "http://dev.com"},
-      {"url": "http://dev.com"}
-    ],
-    
-    "development": [
-      {"url": "http://dev.com"},
-      {"url": "http://dev.com"},
-      {"url": "http://dev.com"}
-    ]
+  "dsv": {
+    "EnvironmentConfig": {
+      "api": "https://api.dsv.com/"
+    }
+  },
+  "prd": {
+    "EnvironmentConfig": {
+      "api": "https://api.production.com/"
+    }
   }
+}

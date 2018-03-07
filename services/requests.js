@@ -1,8 +1,13 @@
-app.service('requests', ['$http', '$q', function($http, $q) {
+app.service('requests', ['EnvironmentConfig'], ['$http', '$q', function($http, $q) {
+
+    //app.constant('EnvironmentConfig', {"api": "https://api.dsv.com/"})
+    //app.constant('EnvironmentConfig', {"api": "https://api.hml.com/"})
+    //app.constant('EnvironmentConfig', {"api": "https://api.prd.com/"})
 
     //request para pegar configurações da aplicação
-    this.getConfig = function () {
+    this.getConfig = function (EnvironmentConfig) {
         let deferred = $q.defer();
+        EnvironmentConfig.setUrl(url);
 
         $http.get("./assets/json/config.json")
 
