@@ -1,14 +1,19 @@
-app.service('requests', ['EnvironmentConfig'], ['$http', '$q', function($http, $q) {
+import { url } from "inspector";
 
-    //app.constant('EnvironmentConfig', {"api": "https://api.dsv.com/"})
-    //app.constant('EnvironmentConfig', {"api": "https://api.hml.com/"})
-    //app.constant('EnvironmentConfig', {"api": "https://api.prd.com/"})
+app.service('requests', ['app.config'] ['$http', '$q', function($http, $q) {
+
+    app.constant('EnvironmentConfig', {"api": "https://api.dsv.com/"})
+    app.constant('EnvironmentConfig', {"api": "https://api.hml.com/"})
+    app.constant('EnvironmentConfig', {"api": "https://api.prd.com/"})
 
     //request para pegar configurações da aplicação
-    this.getConfig = function (EnvironmentConfig) {
+    this.getConfig = function (EnvironmentConfig, gulpfile) {
         let deferred = $q.defer();
-        EnvironmentConfig.setUrl(url);
+    
+        EnvironmentConfig.setUrl(url)
+        app.config.EnvironmentConfig.setUrl(url)
 
+        //$http.get(app.config.EnvironmentConfig.url)
         $http.get("./assets/json/config.json")
 
         .then(

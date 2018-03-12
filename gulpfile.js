@@ -7,6 +7,7 @@ var b2v = require('buffer-to-vinyl');
 var path = require('path'),
     gulp = require('gulp'),
     conf = require('./config.json'),
+    zip = require('gulp-zip'),
     gulpNgConfig = require('gulp-ng-config');
 
 function makeConfig() {
@@ -21,12 +22,18 @@ gulp.task('default', function() {
     console.log('Gulp funcionando...');
   });
 
+  gulp.task('zip', () =>
+	gulp.src('./*')
+		.pipe(zip('package.zip'))
+		.pipe(gulp.dest('dist'))
+);
+
 // Rodar Gulp em development Gulp development
 gulp.task('dsv', function () {
-    gulp.src(('./config.json')).on('error', function(e){
-        console.log(e)
+    gulp.src(('config.json')).on('error', function(error){
+        console.log("Erro na gerar!")
     })
-    .pipe(addStream.obj(makeConfig()))
+    //.pipe(addStream.obj(makeConfig()))
     .pipe(gulpNgConfig('app.config', {
         environment: 'dsv'
       }))
@@ -36,10 +43,8 @@ gulp.task('dsv', function () {
 
 // Rodar Gulp em development Gulp development
 gulp.task('prd', function () {
-    gulp.src(('./config.json')).on('error', function(e){
-        console.log(e)
-    })
-    .pipe(addStream.obj(makeConfig()))
+    gulp.src(('./config.json'))
+    //.pipe(addStream.obj(makeConfig()))
     .pipe(gulpNgConfig('app.config', {
         environment: 'prd'
       }))
