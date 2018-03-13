@@ -1,8 +1,15 @@
+import { url } from "inspector";
+
 //declarando module
-var app = angular.module('tripagApp', ["ngRoute"]);
+var app = angular.module('tripagApp', ["ngRoute"], ['EnvironmentConfig'])
+
+app.constant('EnvironmentConfig', {"api": "https://api.dsv.com/"})
+app.constant('EnvironmentConfig', {"api": "https://api.hml.com/"})
+app.constant('EnvironmentConfig', {"api": "https://api.prd.com/"})
 
 //setando as configurações de routes
 app.config(function($routeProvider) {
+
     $routeProvider
     .when("/", {
         templateUrl : "./views/estabelecimento.html",

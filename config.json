@@ -1,0 +1,12 @@
+{
+  "dsv": {
+    "EnvironmentConfig": {
+      "api": "http://localhost/"
+    }
+  },
+  "prd": {
+    "EnvironmentConfig": {
+      "api": "https://api.production.com/"
+    }
+  }
+}
