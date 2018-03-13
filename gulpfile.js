@@ -23,7 +23,7 @@ gulp.task('default', function() {
   });
 
   gulp.task('zip', () =>
-	gulp.src('./*')
+	gulp.src('./**/*')
 		.pipe(zip('package.zip'))
 		.pipe(gulp.dest('dist'))
 );
